@@ -22,20 +22,24 @@
     left: 0;
   }
 }
-
 .three{
-  background-image: url('../assets/images/home_back3.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.four{
   background-image: url('../assets/images/home_back4.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  display: block;
+  position: relative;
+  .backgroundColor {
+    background-color: #000000;
+    opacity: 0.5;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 }
-.five{
+.four{
   background-image: url('../assets/images/home_back5.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -245,6 +249,8 @@
   }
   // 스낵바
   .buttons {
+    z-index: 10000;
+    position: relative;
     display: flex;
     justify-content: center;
     .button.is-medium {
@@ -270,8 +276,151 @@
       }
     }
   }
-
 }
+
+// 세번째 백그라운드
+.teamContainer {
+  z-index: 10000;
+  position: relative;
+  max-width: 1480px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  vertical-align: middle;
+  display: flex;
+  .teamTitle {
+    max-width: 800px;
+    width: 100%;
+    display: table;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 53px;
+    text-align: inherit;
+    letter-spacing: 0.02em;
+    line-height: 1.5em;
+  }
+  .teamBody {
+    margin-top: 20px;
+    vertical-align: middle;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: inherit;
+    letter-spacing: 0.01em;
+    line-height: 2em;
+  }
+  // 스낵바
+  .button.is-medium {
+    z-index: 9;
+    width: auto;
+    height: auto;
+    padding: 1em 1.75em;
+    margin-top: 25px;
+    position: relative;
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: normal;
+    outline: none;
+    &:hover{
+      background-color:rgb(255, 255, 255);
+      color: rgb(34, 34, 34);
+      font-weight:bold;
+      border-color: rgb(255, 255, 255);
+    }
+  }
+}
+
+// 특장점
+.advantageContainer {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #333333;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  .advantageBox1 {
+    margin: 80px;
+    width: 34%;
+    .advantageImg {
+      padding-top: 34%;
+      background-image: url("../assets/images/service1.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .advantageTitle {
+      margin: 30px 0 0 0;
+      color: #00BFBA;
+      font-weight: bold;
+      font-size: 30px;
+    }
+    .divisionLine {
+      width: 100%;
+      background-color: #00BFBA;
+      min-height: 1px;
+      display: inline-block;
+    }
+    .advantageInt {
+      color: #FFFFFF;
+      font-size: 50px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.5em;
+    }
+    .advantageBody {
+      color: rgb(255, 255, 255);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 2em;
+      padding: 30px 40px 20px 40px;
+    }
+  }
+  .advantageBox2 {
+    margin: 80px;
+    width: 34%;
+    .advantageImg2 {
+      padding-top: 34%;
+      background-image: url("../assets/images/service2.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    .advantageTitle {
+      margin: 30px 0 0 0;
+      color: #EE8292;
+      font-weight: bold;
+      font-size: 30px;
+    }
+    .divisionLine {
+      width: 100%;
+      background-color: #EE8292;
+      min-height: 1px;
+      display: inline-block;
+    }
+    .advantageInt {
+      color: #FFFFFF;
+      font-size: 50px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: 1.5em;
+    }
+    .advantageBody {
+      color: rgb(255, 255, 255);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 2em;
+      padding: 30px 40px 20px 40px;
+    }
+  }
+}
+
+
 
 
 // 임시 푸터

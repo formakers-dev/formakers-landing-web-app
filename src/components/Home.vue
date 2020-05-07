@@ -80,24 +80,49 @@
           </div>
         </section>
       </div>
-
     </div>
 
     <div class="backgroundDiv three">
-      <div class="captionTitle">1</div>
+      <div class="backgroundColor"></div>
+      <div>
+        <div class="teamContainer">
+          <div class="teamTitle">삼성이 선택한 젊은 IT 스타트업, <br>" 포메이커스 "
+            <section>
+              <div class="buttons">
+                <button class="button is-medium is-warning" @click="warning">
+                  팀 소개 보기
+                </button>
+              </div>
+            </section>
+          </div>
+          <div class="teamBody">포메이커스는 삼성전자에서 직접 선정하고, <br>삼성벤처투자에서 투자한 주목받는 스타트업입니다.</div>
+        </div>
+
+      </div>
     </div>
     <div class="contentBox">
       <p>특장점</p>
     </div>
+    <div class="advantageContainer">
+      <div class="advantageBox1">
+        <div class="advantageImg"></div>
+        <p class="advantageTitle">실제 게이머로 이루어진 테스터</p>
+        <p class="advantageInt">5,000+</p>
+        <p class="advantageBody">단순 알바가 아닌, 게임을 정말 좋아하는 <br>
+          실제 게이머들이 테스터로 활동하고 있습니다.</p>
+        <div class="divisionLine"></div>
+      </div>
+      <div class="advantageBox2">
+        <div class="advantageImg2"></div>
+        <p class="advantageTitle">다양한 규모의 포메이커스 이용사</p>
+        <p class="advantageInt">80+</p>
+        <p class="advantageBody">대형 퍼블리셔 부터 인디 게임사까지. <br>
+          다양한 고객들이 포메이커스를 사용하고 계십니다.</p>
+        <div class="divisionLine"></div>
+      </div>
+    </div>
 
     <div class="backgroundDiv four">
-      <div class="captionTitle">1</div>
-    </div>
-    <div class="contentBox">
-      <p>본문</p>
-    </div>
-
-    <div class="backgroundDiv five">
       <div class="captionTitle">1</div>
     </div>
     <div class="contentBox">

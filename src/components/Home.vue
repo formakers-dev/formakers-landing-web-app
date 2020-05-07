@@ -48,7 +48,6 @@
         <div class="divisionLine" style="background-color: #EE8292"></div>
       </div>
     </div>
-
     <div class="backgroundDiv two">
       <div class="backgroundColor"></div>
       <div>
@@ -81,7 +80,6 @@
         </section>
       </div>
     </div>
-
     <div class="backgroundDiv three">
       <div class="backgroundColor"></div>
       <div>
@@ -97,7 +95,6 @@
           </div>
           <div class="teamBody">포메이커스는 삼성전자에서 직접 선정하고, <br>삼성벤처투자에서 투자한 주목받는 스타트업입니다.</div>
         </div>
-
       </div>
     </div>
     <div class="contentBox">
@@ -121,13 +118,32 @@
         <div class="divisionLine"></div>
       </div>
     </div>
+    <div class="partnerContainer">
+      <div class="partnerDiv">
+        <p class="partnerTitle">포메이커스는 든든한 파트너와 함께합니다.</p>
+      </div>
+      <div class="partnerDiv">
+        <img src="../assets/images/partner_logo.png" alt="">
+      </div>
+    </div>
+    <div class="backgroundDiv2 four">
+      <div class="backgroundColor"></div>
+      <div>
+        <div class="feedbackContainer">
+          <div class="feedbackTitle">유저 피드백 만큼 값진 것은 없습니다.<br>
+            <div class="feedbackBody">진짜 게이머에게 내 게임에 대한 의견을 들어보세요.</div><br>
+            <section>
+              <div class="buttons">
+                <button class="button is-medium is-warning" @click="warning">
+                  테스트 플랜 보기
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="backgroundDiv four">
-      <div class="captionTitle">1</div>
-    </div>
-    <div class="contentBox">
-      <p>본문</p>
-    </div>
 
     <footer>
       <span class="copyright">&copy; 이거슨 푸터</span>

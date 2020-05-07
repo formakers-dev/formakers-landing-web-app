@@ -1,7 +1,54 @@
+// 백그라운드 배경
+.one{
+  background-image: url('../assets/images/home_back1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.two{
+  background-image: url('../assets/images/home_back2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: block;
+  position: relative;
+
+
+}
+.backgroundColor {
+  background-color: #000000;
+  opacity: 0.5;
+  position: absolute; /*다른 요소들 위로 겹쳐질 수 있게함*/
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+}
+.three{
+  background-image: url('../assets/images/home_back3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.four{
+  background-image: url('../assets/images/home_back4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.five{
+  background-image: url('../assets/images/home_back5.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+// 첫번째 백그라운드
 .backgroundDiv{
   width: 100vw;
   height: 100vh;
-  padding: 16px;
+  padding: 20px;
   margin: 0;
   top: 0;
   left: 0;
@@ -23,7 +70,6 @@
         width: 100%;
         display: table;
         color: #222222;
-        font-family: sans-serif;
         font-weight: 700;
         font-size: 50px;
         text-align: inherit;
@@ -34,7 +80,6 @@
         margin-top: 20px;
         vertical-align: middle;
         color: #222222;
-        font-family: sans-serif;
         font-weight: 700;
         font-size: 20px;
         text-align: inherit;
@@ -88,7 +133,7 @@
 }
 .majorGameSubContainer {
   width: 100%;
-  padding: 50px 20px;
+  padding: 50px 20px 60px 20px;
   margin: 0 auto;
   background-color: #333333;
   text-align: center;
@@ -104,55 +149,70 @@
     background-color: #00BFBA;
     min-height: 1px;
     display: inline-block;
-    margin-top: 30px;
   }
   .majorGameSubBody {
     color: rgb(255, 255, 255);
-    font-family: "Noto Sans", sans-serif;
     font-size: 18px;
     font-weight: 400;
     letter-spacing: 0.02em;
     line-height: 2em;
     max-width: 410px;
-    padding: 30px 40px;
+    padding: 30px 40px 20px 40px;
   }
   img {
     width: 25%;
-    padding: 10px 0;
+    margin-bottom: 30px;
   }
 }
 
-// 백그라운드 배경
-.one{
-  background-image: url('../assets/images/home_back1.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+// 두번째 백그라운드
+.aboutContainer {
+  z-index: 10000;
+  position: relative;
+  max-width: 1480px;
+  width: 100%;
+  height: 100%;
+  margin: 220px auto;
+  vertical-align: middle;
+  .aboutTitle {
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 28px;
+    text-align: inherit;
+    letter-spacing: 0.02em;
+    line-height: 1.5em;
+    padding: 16px 0;
+  }
+  .eveImgBox {
+    width: 28%;
+    padding: 16px 0;
+    img {
+      width: 100%;
+      padding: 16px 0;
+    }
+  }
+  .aboutHeader {
+    padding: 16px 0;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: inherit;
+    letter-spacing: 0.02em;
+    line-height: 1.5em;
+  }
+  .aboutBody {
+    padding: 16px 0;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: inherit;
+    letter-spacing: 0.02em;
+    line-height: 2em;
+  }
 }
-.two{
-  background-image: url('../assets/images/home_back2.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.three{
-  background-image: url('../assets/images/home_back3.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.four{
-  background-image: url('../assets/images/home_back4.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-.five{
-  background-image: url('../assets/images/home_back5.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
+
+
+
 
 // 임시 푸터
 footer{

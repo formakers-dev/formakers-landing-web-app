@@ -72,8 +72,15 @@
         <p class="serviceTitle">게임사 규모에 맞춘 테스트 플랜</p>
         <div class="divisionLine"></div>
         <p class="serviceSub">부담 없는 트라이얼부터 디테일한 스탠다드까지.</p>
-
+        <section>
+          <div class="buttons">
+            <button class="button is-medium is-warning" @click="warning">
+              자세히 보기
+            </button>
+          </div>
+        </section>
       </div>
+
     </div>
 
     <div class="backgroundDiv three">

@@ -12,19 +12,17 @@
   background-position: center center;
   display: block;
   position: relative;
-
-
+  .backgroundColor {
+    background-color: #000000;
+    opacity: 0.5;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
 }
-.backgroundColor {
-  background-color: #000000;
-  opacity: 0.5;
-  position: absolute; /*다른 요소들 위로 겹쳐질 수 있게함*/
-  width: 100vw;
-  height: 100%;
-  top: 0;
-  left: 0;
 
-}
 .three{
   background-image: url('../assets/images/home_back3.jpg');
   background-size: cover;
@@ -86,6 +84,7 @@
         letter-spacing: 0.01em;
         line-height: 2em;
       }
+      // 스낵바
       .button.is-medium {
         z-index: 9;
         width: auto;
@@ -223,6 +222,7 @@
   display: flex;
   justify-content: center;
   .serviceTitle {
+    padding: 10px 0 15px 0;
     color: #FFFFFF;
     font-weight: 700;
     font-size: 28px;
@@ -236,15 +236,42 @@
     display: inline-block;
   }
   .serviceSub {
-    color: rgb(255, 255, 255);
-    font-size: 18px;
+    color: #FFFFFF;
+    font-size: 15px;
     font-weight: 400;
     letter-spacing: 0.02em;
     line-height: 2em;
-    padding: 30px 40px 20px 40px;
+    padding: 25px 95px 20px 95px;
   }
-}
+  // 스낵바
+  .buttons {
+    display: flex;
+    justify-content: center;
+    .button.is-medium {
+      z-index: 9;
+      width: auto;
+      height: auto;
+      padding: 1em 1.75em;
+      margin-top: 25px;
+      position: relative;
+      background-color: #00BFBA;
+      border: 2px solid #00BFBA;
+      color: #FFFFFF;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      line-height: normal;
+      outline: none;
+      &:hover{
+        background-color:#53C6C2;
+        color: #FFFFFF;
+        font-weight:bold;
+        border-color: #53C6C2;
+      }
+    }
+  }
 
+}
 
 
 // 임시 푸터

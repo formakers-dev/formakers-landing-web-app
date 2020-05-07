@@ -65,14 +65,22 @@
       </div>
     </div>
     <div class="contentBox">
-      <p>본문</p>
+      <p>서비스</p>
+    </div>
+    <div class="serviceContainer">
+      <div>
+        <p class="serviceTitle">게임사 규모에 맞춘 테스트 플랜</p>
+        <div class="divisionLine"></div>
+        <p class="serviceSub">부담 없는 트라이얼부터 디테일한 스탠다드까지.</p>
+
+      </div>
     </div>
 
     <div class="backgroundDiv three">
       <div class="captionTitle">1</div>
     </div>
     <div class="contentBox">
-      <p>본문</p>
+      <p>특장점</p>
     </div>
 
     <div class="backgroundDiv four">

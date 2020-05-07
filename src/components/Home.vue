@@ -143,18 +143,10 @@
         </div>
       </div>
     </div>
-
-
-    <footer>
-      <span class="copyright">&copy; 이거슨 푸터</span>
-
-
-    </footer>
   </div>
 </template>
 
 <script>
-
 
 export default {
   methods: {
@@ -175,5 +167,4 @@ export default {
 </script>
 
 <style lang="scss" src="./Home.scss">
-
 </style>

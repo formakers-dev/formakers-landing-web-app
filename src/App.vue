@@ -1,18 +1,21 @@
 <template>
   <div id="app">
-<!--    <NavBar></NavBar>-->
-    <Home></Home>
+    <NavBar></NavBar>
+     <Home></Home>
+     <Footer></Footer>
   </div>
 </template>
 
 <script>
-  // import NavBar from './components/NavBar.vue'
+  import NavBar from './components/NavBar.vue'
   import Home from './components/Home.vue'
+  import Footer from './components/Footer.vue'
 
   export default {
     components: {
-      // NavBar,
-      Home
+        NavBar,
+        Home,
+        Footer
     }
   }
 </script>

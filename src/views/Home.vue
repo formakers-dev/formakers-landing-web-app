@@ -166,5 +166,6 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./Home.scss">
+<style scoped lang="scss" src="../components/Home.scss">
+
 </style>

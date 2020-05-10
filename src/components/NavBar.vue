@@ -1,45 +1,52 @@
 <template>
-   <div>
-      <nav>
-         <ul>
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">이거는 nav다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</a></li>
-         </ul>
-      </nav>
-   </div>
+   <b-navbar>
+      <template slot="brand">
+         <b-navbar-item tag="router-link" :to="{ path: '/' }">
+            <img
+                    src="../assets/images/formakers_logo.png"
+                    alt="formakers_logo"
+            >
+         </b-navbar-item>
+      </template>
+      <template slot="start">
+         <b-navbar-item tag="router-link" :to="{ path: '/' }">
+            HOME
+         </b-navbar-item>
+         <b-navbar-item href="#">
+            플랜 소개
+         </b-navbar-item>
+         <b-navbar-item tag="router-link" :to="{ path: '/process' }">
+            프로세스
+         </b-navbar-item>
+         <b-navbar-item href="#">
+            회사 소개
+         </b-navbar-item>
+         <b-navbar-item href="#">
+            트라이얼 플랜 신청 게시판
+         </b-navbar-item>
+      </template>
+
+      <template slot="end">
+         <b-navbar-item tag="div">
+            <div class="buttons">
+               <a class="button is-primary">
+                  <strong>LOG IN</strong>
+               </a>
+               <a class="button is-light">
+                  CART
+               </a>
+            </div>
+         </b-navbar-item>
+      </template>
+   </b-navbar>
 </template>
 
 <script>
    export default {
-      name: "NavBar"
+
    }
 </script>
 
 <style scoped lang="scss">
-   nav{
-      width: 100%;
-      height: 40px;
-      ul {
-         display: flex;
-         justify-content: space-around;
-         li{
-            list-style-type: none;
-            float: right;
-            line-height: 50px;
-            padding-right: 4.8%;
-            height: 50px;
-            a{
-               text-decoration: none;
-               color: black;
-            }
-            a:hover{
-               color: green;
-            }
-         }
-      }
-   }
 
 </style>

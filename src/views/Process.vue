@@ -1,5 +1,7 @@
 <template>
    <div>
+      <div class="menuBackground">
+      </div>
       <div class="contentBox">
          <p>프로세스 소개</p>
       </div>
@@ -86,6 +88,13 @@
 </script>
 
 <style scoped lang="scss">
+   //메뉴 백그라운드
+   .menuBackground {
+      padding-top: 55px;
+      padding-bottom: 50px;
+      background-color: #333333;
+   }
+
    // 공통 백그라운드(유저 피드백 부분)
    .four{
       background-image: url('../assets/images/home_back5.jpg');

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-     <NavBar></NavBar>
+     <NavBar style="position: absolute"></NavBar>
      <router-view></router-view>
      <Footer></Footer>
   </div>

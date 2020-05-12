@@ -18,11 +18,8 @@
          <b-navbar-item tag="router-link" :to="{ path: '/process' }">
             프로세스
          </b-navbar-item>
-         <b-navbar-item href="#">
+         <b-navbar-item tag="router-link" :to="{ path: '/company' }">
             회사 소개
-         </b-navbar-item>
-         <b-navbar-item href="#">
-            트라이얼 플랜 신청 게시판
          </b-navbar-item>
       </template>
 

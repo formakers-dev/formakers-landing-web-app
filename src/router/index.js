@@ -24,6 +24,9 @@ export const router = new VueRouter ({
     {
       path: '/company',
       component: Company
-    }
-  ]
+    },
+  ],
+  scrollBehavior() {
+    document.getElementById('app').scrollIntoView();
+  }
 });

@@ -18,19 +18,19 @@
             </div>
             <div style="padding: 30px">
                <p class="processStepTitle">🙋‍♀️ STEP 01 : 의뢰/상담/결제</p>
-               <p class="processStepSub"><span style="font-weight: bold">1. 상담</span> : 홈페이지를 통해 문의를 주시면 적어주신 전화나 이메일로 답변을 드립니다.</p>
-               <p class="processStepSub"><span style="font-weight: bold">2. 의뢰</span> : 홈페이지의 버튼을 통해 의뢰주시면, 내용을 확인하고 포메이커스 팀에서 연락을 드립니다.</p>
-               <p class="processStepSub"><span style="font-weight: bold">3. 결제</span> : 상담 후 최종 비용을 안내드리면, 무통장 입금으로 결제가 진행됩니다. (세금계산서 발급 가능)</p>
+               <p class="processStepSub"><span>1. 상담</span> : 홈페이지를 통해 문의를 주시면 적어주신 전화나 이메일로 답변을 드립니다.</p>
+               <p class="processStepSub"><span>2. 의뢰</span> : 홈페이지의 버튼을 통해 의뢰주시면, 내용을 확인하고 포메이커스 팀에서 연락을 드립니다.</p>
+               <p class="processStepSub"><span>3. 결제</span> : 상담 후 최종 비용을 안내드리면, 무통장 입금으로 결제가 진행됩니다. (세금계산서 발급 가능)</p>
             </div>
             <div style="padding: 30px">
                <p class="processStepTitle" style="color: rgb(237, 174, 48)">🕵️‍♂️ STEP 02 : 테스트 관련</p>
-               <p class="processStepSub"><span style="font-weight: bold">4. 테스트 준비</span> : 맞춤설문이 가능한 플랜을 구매하신 경우, 설문 초안을 작성하여 공유드립니다.</p>
-               <p class="processStepSub"><span style="font-weight: bold">5. 테스트 진행</span> : 포메이커스 팀이 게이머들을 대상으로 테스트를 열고 닫습니다.</p>
-               <p class="processStepSub"><span style="font-weight: bold">6. 결과서 전달 </span>: 테스트 종료 후 3일 내에 결과를 정리하여 이메일로 보내드립니다.</p>
+               <p class="processStepSub"><span>4. 테스트 준비</span> : 맞춤설문이 가능한 플랜을 구매하신 경우, 설문 초안을 작성하여 공유드립니다.</p>
+               <p class="processStepSub"><span>5. 테스트 진행</span> : 포메이커스 팀이 게이머들을 대상으로 테스트를 열고 닫습니다.</p>
+               <p class="processStepSub"><span>6. 결과서 전달 </span>: 테스트 종료 후 3일 내에 결과를 정리하여 이메일로 보내드립니다.</p>
             </div>
             <div style="padding: 30px">
                <p class="processStepTitle" style="color: rgb(238, 130, 146)">💌 STEP 03 : 마무리</p>
-               <p class="processStepSub"><span style="font-weight: bold">7. 만족도 설문</span> : 만족도 설문에 적어주신 내용을 바탕으로 게임사의 소감이 보여집니다.</p>
+               <p class="processStepSub"><span>7. 만족도 설문</span> : 만족도 설문에 적어주신 내용을 바탕으로 게임사의 소감이 보여집니다.</p>
             </div>
             <div style="padding: 20px 0 60px 0">
                <div class="divisionLine"></div>
@@ -88,7 +88,7 @@
             },
             warning() {
                 this.$buefy.snackbar.open({
-                    message: '"테스트 플랜 보기" 버튼이 클릭되었습니다!!!',
+                    message: '🚨 버튼이 클릭되었습니다!!! 🚨',
                     type: 'is-warning',
                     position: 'is-top',
                     actionText: 'OK',
@@ -205,6 +205,9 @@
          font-weight: 400;
          letter-spacing: 0.02em;
          line-height: 2em;
+         span {
+            font-weight: bold
+         }
       }
       // 스낵바
       .buttons {

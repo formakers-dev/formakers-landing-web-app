@@ -22,9 +22,11 @@
                   <p class="mediaSub">[플레이어] 게임 테스트, 지인에 묻지 마세요 '포메이커스'에 양보하세요</p>
                   <section>
                      <div class="buttons">
-                        <button class="button is-medium is-warning" @click="warning">
+                        <a href="http://it.chosun.com/site/data/html_dir/2019/11/09/2019110900381.html?fbclid=IwAR0QBL0fWkF4Wva3SlUucxQ5zIskxUdKR7b1tOLIVlHRxI7W5GZHBQUaofI" target="_blank">
+                        <button class="button is-medium is-warning">
                            기사 보기
                         </button>
+                        </a>
                      </div>
                   </section>
                </div>
@@ -32,9 +34,11 @@
                   <p class="mediaSub">삼성전자, 사내벤처 C랩 3개 우수 과제 스타트업 창업 지원</p>
                   <section>
                      <div class="buttons">
-                        <button class="button is-medium is-warning" @click="warning">
+                        <a href="https://newsis.com/view/?id=NISX20180606_0000328667&cID=13001&pID=13000" target="_blank">
+                        <button class="button is-medium is-warning">
                            기사 보기
                         </button>
+                        </a>
                      </div>
                   </section>
                </div>
@@ -42,9 +46,11 @@
                   <p class="mediaSub">스마일게이트 오렌지팜 입주사 '포메이커스' 인터뷰</p>
                   <section>
                      <div class="buttons">
-                        <button class="button is-medium is-warning" @click="warning">
+                        <a href="https://blog.naver.com/orangefarm1234/221650992215" target="_blank">
+                        <button class="button is-medium is-warning">
                            인터뷰 보기
                         </button>
+                        </a>
                      </div>
                   </section>
                </div>
@@ -85,7 +91,7 @@
             },
             warning() {
                 this.$buefy.snackbar.open({
-                    message: '"테스트 플랜 보기" 버튼이 클릭되었습니다!!!',
+                    message: '🚨 버튼이 클릭되었습니다!!! 🚨',
                     type: 'is-warning',
                     position: 'is-top',
                     actionText: 'OK',

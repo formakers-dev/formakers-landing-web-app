@@ -9,7 +9,7 @@
           <section>
             <div class="buttons">
               <button class="button is-medium is-warning" @click="warning">
-                테스트 플랜 보기
+                무료 트라이얼 신청
               </button>
             </div>
           </section>
@@ -87,7 +87,7 @@
           <div class="teamTitle">삼성이 선택한 젊은 IT 스타트업, <br>" 포메이커스 "
             <section>
               <div class="buttons">
-                <button class="button is-medium is-warning" @click="warning">
+                <button class="button is-medium is-warning" @click="$router.push('company')">
                   팀 소개 보기
                 </button>
               </div>
@@ -155,7 +155,7 @@ export default {
     },
     warning() {
       this.$buefy.snackbar.open({
-        message: '"테스트 플랜 보기" 버튼이 클릭되었습니다!!!',
+        message: '🚨 버튼이 클릭되었습니다!!! 🚨',
         type: 'is-warning',
         position: 'is-top',
         actionText: 'OK',

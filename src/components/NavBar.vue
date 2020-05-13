@@ -1,5 +1,5 @@
 <template>
-   <b-navbar class="is-link" :fixed-top="true"  :transparent="true">
+   <b-navbar class="is-link" :fixed-top="true" :transparent="true">
       <template slot="brand">
          <b-navbar-item tag="router-link" :to="{ path: '/' }">
             <img
@@ -22,12 +22,11 @@
             회사 소개
          </b-navbar-item>
       </template>
-
       <template slot="end">
          <b-navbar-item tag="div">
             <div class="buttons">
-               <a class="button is-primary">
-                  <strong>LOG IN</strong>
+               <a class="button is-light">
+                  LOG IN
                </a>
                <a class="button is-light">
                   CART
@@ -39,19 +38,72 @@
 </template>
 
 <script>
-   export default {
-
-   }
+    export default {}
 </script>
 
 <style scoped lang="scss">
-
+   // 네브바
    nav.navbar.is-fixed-top {
       background: transparent;
       font-size: 18px;
       font-weight: 700;
       padding: 20px;
+      img {
+         padding-right: 40px;
+      }
    }
 
+   // 메뉴 텍스트
+   .navbar.is-link .navbar-start > .navbar-item.router-link-exact-active {
+      color: #49BBB8;
+   }
+
+   // 로긴 & 카트 버튼
+   .navbar-end > .navbar-item {
+      .button {
+         background-color: #41BFB9;
+         color: #FFFFFF;
+         &:hover {
+            background-color: #53C6C2;
+         }
+      }
+   }
+
+   // 반응형
+   @media screen and (max-width: 1024px) {
+      // 메뉴 텍스트
+      .navbar-item {
+         color: #49BBB8;
+      }
+      .navbar-item.router-link-exact-active {
+         color: #49BBB8;
+      }
+
+      // 메뉴
+      .navbar-item {
+         background: transparent;
+         color: black;
+      }
+      .navbar.is-link .navbar-start > .navbar-item {
+         display: flex;
+         justify-content: center;
+         &:hover {
+            color: #49BBB8;
+         }
+      }
+
+      // 로긴 & 카트 버튼
+      .navbar-end > .navbar-item {
+         display: flex;
+         justify-content: center;
+         .button {
+            background-color: #41BFB9;
+            color: #FFFFFF;
+            &:hover {
+               background-color: #53C6C2;
+            }
+         }
+      }
+   }
 
 </style>

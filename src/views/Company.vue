@@ -85,20 +85,7 @@
 
 <script>
     export default {
-        methods: {
-            snackbar() {
-                this.$buefy.snackbar.open(`Default, positioned bottom-right with a green 'OK' button`)
-            },
-            warning() {
-                this.$buefy.snackbar.open({
-                    message: '🚨 버튼이 클릭되었습니다!!! 🚨',
-                    type: 'is-warning',
-                    position: 'is-top',
-                    actionText: 'OK',
-                    indefinite: true,
-                })
-            },
-        }
+
     }
 </script>
 
@@ -233,6 +220,7 @@
             color: rgb(34, 34, 34);
             font-weight: bold;
             border-color: rgb(255, 255, 255);
+            animation: ease-in 5s;
          }
       }
    }

@@ -23,7 +23,7 @@
       <img src="../assets/images/major_game.png" alt="">
     </div>
     <div class="majorGameSubContainer">
-      <div>
+      <div class="majorGameSubBox">
         <img src="../assets/images/buf_logo.png" alt="">
         <p class="majorGameSubTitle">버프스튜디오 김도형 대표님</p>
         <p class="majorGameSubBody">포메이커스, 너무 만족했습니다.<br>
@@ -31,7 +31,7 @@
           게임을 개선하고 싶다면 추천드려요!!</p>
         <div class="divisionLine"></div>
       </div>
-      <div>
+      <div class="majorGameSubBox">
         <img src="../assets/images/wonder_logo.png" alt="">
         <p class="majorGameSubTitle" style="color: #EDAE30">원더스쿼드 서관희 대표님</p>
         <p class="majorGameSubBody">솔직하고 정성스럽게 써주신 분들이 많아서 <br>
@@ -39,7 +39,7 @@
           좋은 의견들을 들을 수 있어서 좋았습니다.</p>
         <div class="divisionLine" style="background-color: #EDAE30"></div>
       </div>
-      <div>
+      <div class="majorGameSubBox">
         <img src="../assets/images/zabob_logo.png" alt="">
         <p class="majorGameSubTitle" style="color: #EE8292">자밥 스튜디오 권대현 대표님</p>
         <p class="majorGameSubBody">스토어 리뷰나 지인 평가는 참고만 해야지, <br>
@@ -119,10 +119,10 @@
       </div>
     </div>
     <div class="partnerContainer">
-      <div class="partnerDiv">
+      <div class="partnerDiv1">
         <p class="partnerTitle">포메이커스는 든든한 파트너와 함께합니다.</p>
       </div>
-      <div class="partnerDiv">
+      <div class="partnerDiv2">
         <img src="../assets/images/partner_logo.png" alt="">
       </div>
     </div>
@@ -248,7 +248,7 @@ export default {
       margin: 0 auto;
       vertical-align: middle;
       .captionTitle {
-        max-width: 800px;
+        max-width: 700px;
         width: 100%;
         display: table;
         color: #222222;
@@ -293,6 +293,15 @@ export default {
       }
     }
   }
+  @media screen and (max-width: 640px) {
+    .backgroundDiv .captionContainer .captionTitle {
+      font-size: 30px;
+    }
+    .backgroundDiv .captionContainer .captionBody {
+      font-size: 15px;
+    }
+  }
+
 
   // 주요 이용 게임 & 그외 컨텐츠박스 공통 style
   .contentBox{
@@ -349,6 +358,29 @@ export default {
       margin-bottom: 30px;
     }
   }
+  @media screen and (max-width: 640px) {
+    .contentBox {
+      font-size: 20px;
+    }
+    .majorGameSubContainer {
+      flex-wrap: wrap;
+      .majorGameSubBox {
+        padding-bottom: 10%;
+        img {
+          width: 40%;
+        }
+        .majorGameSubTitle {
+          font-size: 18px;
+        }
+        .majorGameSubBody {
+          font-size: 12px;
+        }
+        .divisionLine {
+          width: 50%;
+        }
+      }
+    }
+  }
 
   // 두번째 백그라운드
   .aboutContainer {
@@ -393,6 +425,17 @@ export default {
       text-align: inherit;
       letter-spacing: 0.02em;
       line-height: 2em;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .backgroundDiv .aboutContainer .aboutTitle {
+      font-size: 22px;
+    }
+    .backgroundDiv .aboutContainer .aboutHeader {
+      font-size: 20px;
+    }
+    .backgroundDiv .aboutContainer .aboutBody {
+      font-size: 12px;
     }
   }
 
@@ -457,6 +500,23 @@ export default {
       }
     }
   }
+  @media screen and (max-width: 640px) {
+    .serviceContainer {
+      padding: 30px 0;
+      .serviceTitle {
+        font-size: 18px;
+      }
+      .serviceSub {
+        font-size: 12px;
+        padding: 30px 0 0 0 ;
+      }
+      .buttons {
+        .button.is-medium {
+          font-size: 15px;
+        }
+      }
+    }
+  }
 
   // 세번째 백그라운드
   .teamContainer {
@@ -510,6 +570,22 @@ export default {
         color: rgb(34, 34, 34);
         font-weight:bold;
         border-color: rgb(255, 255, 255);
+      }
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .backgroundDiv .teamContainer {
+      flex-wrap: wrap;
+      .teamTitle {
+        font-size: 25px;
+        .buttons {
+          .button.is-medium {
+            font-size: 12px;
+          }
+        }
+      }
+      .teamBody {
+        font-size: 15px;
       }
     }
   }
@@ -599,6 +675,39 @@ export default {
       }
     }
   }
+  @media screen and (max-width: 640px) {
+    .advantageContainer {
+      flex-wrap: wrap;
+      .advantageBox1 {
+        width: 100%;
+        margin: 40px;
+        .advantageTitle {
+          font-size: 18px;
+        }
+        .advantageInt {
+          font-size: 18px;
+        }
+        .advantageBody {
+          font-size: 12px;
+          padding: 30px 30px 20px 30px;
+        }
+      }
+      .advantageBox2 {
+        width: 100%;
+        margin: 40px;
+        .advantageTitle {
+          font-size: 18px;
+        }
+        .advantageInt {
+          font-size: 18px;
+        }
+        .advantageBody {
+          font-size: 12px;
+          padding: 30px 30px 20px 30px;
+        }
+      }
+    }
+  }
 
   // 든든한 파트너
   .partnerContainer {
@@ -609,13 +718,39 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    .partnerDiv {
+    .partnerDiv1 {
       margin: 40px 80px;
       width: 34%;
       .partnerTitle {
         color: rgb(51, 51, 51);
         font-weight: bold;
         font-size: 30px;
+      }
+    }
+    .partnerDiv2 {
+      margin: 40px 80px;
+      width: 34%;
+      .partnerTitle {
+        color: rgb(51, 51, 51);
+        font-weight: bold;
+        font-size: 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 640px) {
+    .partnerContainer {
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      .partnerDiv1 {
+        width: 100%;
+        margin: 30px 0;
+        .partnerTitle {
+          font-size: 18px;
+        }
+      }
+      .partnerDiv2 {
+        margin: 0;
+        width: 90%;
       }
     }
   }
@@ -695,6 +830,21 @@ export default {
       }
     }
   }
+  @media screen and (max-width: 640px) {
+    .backgroundDiv2 .feedbackContainer .feedbackTitle {
+      font-size: 20px;
+      .feedbackBody {
+        margin: 20px 0 20px 0;
+        font-size: 15px;
+      }
+      .buttons {
+        .button.is-medium {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
 
 
 </style>

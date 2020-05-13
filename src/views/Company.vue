@@ -134,6 +134,11 @@
       letter-spacing: 0.02em;
       line-height: 1.5em;
    }
+   @media screen and (max-width: 640px) {
+      .contentBox {
+         font-size: 20px;
+      }
+   }
 
    // 회사 소개
    .introContainer {
@@ -224,6 +229,36 @@
          }
       }
    }
+   @media screen and (max-width: 640px) {
+      .introContainer {
+         padding: 50px 100px;
+         .introBox {
+
+            // 인트로
+            .introTitle {
+               font-size: 18px;
+               padding: 0;
+            }
+            .introSub {
+               font-size: 12px;
+            }
+
+            // 언론보도
+            .mediaTitle {
+               font-size: 18px;
+            }
+            .mediaSub {
+               font-size: 12px;
+            }
+            .buttons {
+               .button.is-medium {
+                  font-size: 12px;
+               }
+            }
+         }
+      }
+
+   }
 
    // 유저 피드백
    .backgroundDiv2 {
@@ -296,6 +331,20 @@
                font-weight:bold;
                border-color: #53C6C2;
                opacity: 0.8;
+            }
+         }
+      }
+   }
+   @media screen and (max-width: 640px) {
+      .backgroundDiv2 .feedbackContainer .feedbackTitle {
+         font-size: 20px;
+         .feedbackBody {
+            margin: 20px 0 20px 0;
+            font-size: 15px;
+         }
+         .buttons {
+            .button.is-medium {
+               font-size: 15px;
             }
          }
       }

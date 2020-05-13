@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "dev": "dragonserver-627cc",
+    "prd": "dragonproduction-74a9c"
+  }
+}

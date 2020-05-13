@@ -74,6 +74,9 @@ jobs:
       - run:
           name: Dev Firebase Deploy
           command:  ./node_modules/.bin/firebase deploy --project dev --only hosting:formakers-landing-dev --token "$DEV_FIREBASE_TOKEN"
+      - run:
+          name: Archive and Delivery to Slack
+          command: bash .circleci/delivery-to-slack.sh DEV dev-build $CIRCLE_BRANCH
 
   prd-deploy:
     <<: *defaults
@@ -90,6 +93,9 @@ jobs:
       - run:
           name: Prd Firebase Deploy
           command:  ./node_modules/.bin/firebase deploy --project prd --only hosting:formakers --token "$FIREBASE_TOKEN"
+      - run:
+          name: Archive and Delivery to Slack
+          command: bash .circleci/delivery-to-slack.sh PRD _general $CIRCLE_BRANCH
 
 workflows:
   version: 2

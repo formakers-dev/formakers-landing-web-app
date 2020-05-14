@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from '../views/Home';
 import Process from "../views/Process";
 import Company from '../views/Company'
+import Login from '../views/Login'
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,10 @@ export const router = new VueRouter ({
     {
       path: '/company',
       component: Company
+    },
+    {
+      path: '/login',
+      component: Login
     },
   ],
   scrollBehavior() {

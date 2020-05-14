@@ -363,6 +363,7 @@
             letter-spacing: 0.02em;
             line-height: normal;
             outline: none;
+            transition: all .2s cubic-bezier(.33,0,.2,1);
             &:hover{
                background-color:#53C6C2;
                color: #FFFFFF;

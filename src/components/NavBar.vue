@@ -25,7 +25,7 @@
       <template slot="end">
          <b-navbar-item tag="div">
             <div class="buttons">
-               <a class="button is-light">
+               <a class="button is-light" @click="$router.push('login')">
                   LOG IN
                </a>
                <a class="button is-light">
@@ -57,12 +57,19 @@
    .navbar.is-link .navbar-start > .navbar-item.router-link-exact-active {
       color: #49BBB8;
    }
+   .navbar.is-link .navbar-start > .navbar-item {
+      transition: all .2s cubic-bezier(.33,0,.2,1);
+      &:hover {
+         color: #49BBB8;
+      }
+   }
 
    // 로긴 & 카트 버튼
    .navbar-end > .navbar-item {
       .button {
          background-color: #41BFB9;
          color: #FFFFFF;
+         transition: all .2s cubic-bezier(.33,0,.2,1);
          &:hover {
             background-color: #53C6C2;
          }

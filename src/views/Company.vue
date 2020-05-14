@@ -85,7 +85,20 @@
 
 <script>
     export default {
-
+        methods: {
+            snackbar() {
+                this.$buefy.snackbar.open(`Default, positioned bottom-right with a green 'OK' button`)
+            },
+            warning() {
+                this.$buefy.snackbar.open({
+                    message: '🚨 버튼이 클릭되었습니다!!! 🚨',
+                    type: 'is-warning',
+                    position: 'is-top',
+                    actionText: 'OK',
+                    indefinite: true,
+                })
+            },
+        }
     }
 </script>
 
@@ -220,6 +233,7 @@
          letter-spacing: 0.02em;
          line-height: normal;
          outline: none;
+         transition: all .2s cubic-bezier(.33,0,.2,1);
          &:hover {
             background-color: rgb(255, 255, 255);
             color: rgb(34, 34, 34);
@@ -325,6 +339,7 @@
             letter-spacing: 0.02em;
             line-height: normal;
             outline: none;
+            transition: all .2s cubic-bezier(.33,0,.2,1);
             &:hover{
                background-color:#53C6C2;
                color: #FFFFFF;

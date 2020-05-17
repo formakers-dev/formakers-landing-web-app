@@ -5,7 +5,7 @@
       <span>로그인</span>
     </div>
 
-    <form v-on:submit.prevent="submit">
+    <form v-on:submit.prevent="onSubmit">
       <div class="inputContainer">
         <div class="emailInput">
           <label for="email">이메일</label>
@@ -34,7 +34,7 @@
       </div>
 
       <div class="signInBtn">
-        <button type="submit" class="button is-medium is-warning">
+        <button v-bind:disabled="!isEmailValid || !password" type="submit" class="button is-medium is-warning">
           로그인하기
         </button>
       </div>
@@ -51,12 +51,19 @@
 </template>
 
 <script>
+import { validateEmail } from "../utills/validation";
+
 export default {
   data() {
     return {
       email: "",
       password: ""
     };
+  },
+  computed: {
+    isEmailValid() {
+      return validateEmail(this.email);
+    }
   },
   methods: {
     snackbar() {
@@ -72,7 +79,12 @@ export default {
         actionText: "OK",
         indefinite: true
       });
-    }
+    },
+    // submit 이벤트
+    onSubmit() {
+      console.log(`email : ${this.email}`);
+      console.log(`password : ${this.password}`);
+    },
   }
 };
 </script>

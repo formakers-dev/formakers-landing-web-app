@@ -1,37 +1,42 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from '../views/Home';
+import Home from "../views/Home";
 import Process from "../views/Process";
-import Company from '../views/Company'
-import Login from '../views/Login'
+import Company from "../views/Company";
+import SignIn from "../views/SignIn";
+import SignUp from "../views/SignUp";
 
 Vue.use(VueRouter);
 
-export const router = new VueRouter ({
-  mode: 'history',
+export const router = new VueRouter({
+  mode: "history",
   routes: [
     {
-      path: '/',
-      redirect: '/home'
+      path: "/",
+      redirect: "/home"
     },
     {
-      path: '/home',
+      path: "/home",
       component: Home
     },
     {
-      path: '/process',
+      path: "/process",
       component: Process
     },
     {
-      path: '/company',
+      path: "/company",
       component: Company
     },
     {
-      path: '/login',
-      component: Login
+      path: "/signIn",
+      component: SignIn
     },
+    {
+      path: "/signup",
+      component: SignUp
+    }
   ],
   scrollBehavior() {
-    document.getElementById('app').scrollIntoView();
+    document.getElementById("app").scrollIntoView();
   }
 });

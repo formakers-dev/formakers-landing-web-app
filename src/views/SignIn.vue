@@ -15,7 +15,9 @@
             type="text"
             placeholder="이메일을 입력해주세요."
             autofocus
+            ref="emailInputStyle"
           />
+          <span v-if="msg.email">{{ msg.email }}</span>
         </div>
         <div class="passwordInput">
           <label for="password">비밀번호</label>
@@ -24,7 +26,9 @@
             id="password"
             type="password"
             placeholder="비밀번호를 입력해주세요."
+            ref="passwordInputStyle"
           />
+          <span v-if="msg.password">{{ msg.password }}</span>
         </div>
       </div>
 
@@ -34,7 +38,11 @@
       </div>
 
       <div class="signInBtn">
-        <button v-bind:disabled="!isEmailValid || !password" type="submit" class="button is-medium is-warning">
+        <button
+          v-bind:disabled="!isEmailValid || !password"
+          type="submit"
+          class="button is-medium is-warning"
+        >
           로그인하기
         </button>
       </div>
@@ -57,12 +65,23 @@ export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      msg: [],
     };
   },
   computed: {
     isEmailValid() {
       return validateEmail(this.email);
+    }
+  },
+  watch: {
+    email(value) {
+      this.email = value;
+      this.validateEmail(value);
+    },
+    password(value) {
+      this.password = value;
+      this.validatePassword(value);
     }
   },
   methods: {
@@ -85,6 +104,25 @@ export default {
       console.log(`email : ${this.email}`);
       console.log(`password : ${this.password}`);
     },
+    validateEmail(value) {
+      if (/^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/.test(value)) {
+        this.msg["email"] = "";
+        this.$refs.emailInputStyle.style.border = '2px solid #41bfb9';
+      } else {
+        this.msg["email"] = "이메일을 정확히 입력해주세요";
+        this.$refs.emailInputStyle.style.border = '2px solid indianred';
+      }
+    },
+    validatePassword(value) {
+      let difference = 8 - value.length;
+      if (value.length < 8) {
+        this.msg['password'] = `8자 이상 입력해주세요. (현재 ${difference}자 이상 입력 필수)`;
+        this.$refs.passwordInputStyle.style.border = '2px solid indianred';
+      } else {
+        this.msg['password'] = '';
+        this.$refs.passwordInputStyle.style.border = '2px solid #41bfb9';
+      }
+    }
   }
 };
 </script>
@@ -134,6 +172,11 @@ export default {
       font-size: 16px;
       background-color: #333333;
       border: 2px solid #41bfb9;
+    }
+    span {
+      color: indianred;
+      display: block;
+      padding-top: 20px;
     }
   }
 }

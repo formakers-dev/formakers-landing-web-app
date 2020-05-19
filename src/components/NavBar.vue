@@ -22,7 +22,7 @@
     <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-light" @click="$router.push('signIn')">
+          <a class="button is-light" v-on:click="$router.push('signIn')">
             LOG IN
           </a>
           <a class="button is-light">

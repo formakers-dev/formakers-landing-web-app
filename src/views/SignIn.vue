@@ -50,7 +50,7 @@
 
     <section>
       <div class="signUpBtn">
-        <button class="button is-medium is-warning" @click="warning">
+        <button class="button is-medium is-warning" v-on:click="$router.push('signup')">
           회원 가입하기
         </button>
       </div>
@@ -85,20 +85,6 @@ export default {
     }
   },
   methods: {
-    snackbar() {
-      this.$buefy.snackbar.open(
-        `Default, positioned bottom-right with a green 'OK' button`
-      );
-    },
-    warning() {
-      this.$buefy.snackbar.open({
-        message: "🚨 버튼이 클릭되었습니다!!! 🚨",
-        type: "is-warning",
-        position: "is-top",
-        actionText: "OK",
-        indefinite: true
-      });
-    },
     // submit 이벤트
     onSubmit() {
       console.log(`email : ${this.email}`);

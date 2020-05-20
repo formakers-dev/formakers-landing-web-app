@@ -96,10 +96,11 @@
           <input type="checkbox" id="checkbox1" v-model="checked1" />
           <span
             ><router-link to="/policy" target="_blank">이용약관</router-link>과
-            <a href="#">개인정보 수집 및 이용</a>에 동의합니다. <br />본
-            약관에는 마케팅 정보 수신 동의에 관한 내용이 포함되어 있으며,
-            <br />회원은 언제든지 회원 정보 수정에서 수신 거부로 변경할 수
-            있습니다.</span
+            <router-link to="/signupPrivacy" target="_blank"
+              >개인정보 수집 및 이용</router-link
+            >에 동의합니다. <br />본 약관에는 마케팅 정보 수신 동의에 관한
+            내용이 포함되어 있으며, <br />회원은 언제든지 회원 정보 수정에서
+            수신 거부로 변경할 수 있습니다.</span
           >
         </div>
 

@@ -6,6 +6,7 @@ import Company from "../views/Company";
 import SignIn from "../views/SignIn";
 import SignUp from "../views/SignUp";
 import Policy from "../views/Policy";
+import SignupPrivacy from "../views/SignupPrivacy";
 
 Vue.use(VueRouter);
 
@@ -37,8 +38,12 @@ export const router = new VueRouter({
       component: SignUp
     },
     {
-      path: '/policy',
+      path: "/policy",
       component: Policy
+    },
+    {
+      path: "/SignupPrivacy",
+      component: SignupPrivacy
     }
   ],
   scrollBehavior() {

@@ -50,9 +50,11 @@
 
     <section>
       <div class="signUpBtn">
-        <button class="button is-medium is-warning" v-on:click="$router.push('signup')">
-          회원 가입하기
-        </button>
+        <router-link to="/signup">
+          <button class="button is-medium is-warning">
+            회원 가입하기
+          </button>
+        </router-link>
       </div>
     </section>
   </div>

@@ -117,12 +117,11 @@
             삼성이 선택한 젊은 IT 스타트업, <br />" 포메이커스 "
             <section>
               <div class="buttons">
-                <button
-                  class="button is-medium is-warning"
-                  @click="$router.push('company')"
-                >
-                  팀 소개 보기
-                </button>
+                <router-link to="/company">
+                  <button class="button is-medium is-warning">
+                    팀 소개 보기
+                  </button>
+                </router-link>
               </div>
             </section>
           </div>

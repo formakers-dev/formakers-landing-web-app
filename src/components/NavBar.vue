@@ -22,9 +22,11 @@
     <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-light" v-on:click="$router.push('signIn')">
+          <router-link to="signin">
+          <a class="button is-light">
             LOG IN
           </a>
+          </router-link>
           <a class="button is-light">
             CART
           </a>
@@ -64,6 +66,7 @@ nav.navbar.is-fixed-top {
 // 로긴 & 카트 버튼
 .navbar-end > .navbar-item {
   .button {
+    margin: 0 10px;
     background-color: #41bfb9;
     color: #ffffff;
     transition: all 0.2s cubic-bezier(0.33, 0, 0.2, 1);

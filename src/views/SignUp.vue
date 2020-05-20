@@ -55,14 +55,33 @@
         <div class="phoneInput">
           <label for="phone1">휴대폰 번호 *</label>
           <div>
-            <input v-model="phone1" id="phone1" type="tel" />
+            <input
+              v-model="phone1"
+              id="phone1"
+              type="text"
+              v-on:keypress="checkNum"
+              maxlength="3"
+            />
             <div class="element">-</div>
             <label for="phone2"></label>
-            <input v-model="phone2" id="phone2" type="tel" />
+            <input
+              v-model="phone2"
+              id="phone2"
+              type="text"
+              v-on:keypress="checkNum"
+              maxlength="4"
+            />
             <div class="element">-</div>
             <label for="phone3"></label>
-            <input v-model="phone3" id="phone3" type="tel" />
+            <input
+              v-model="phone3"
+              id="phone3"
+              type="text"
+              v-on:keypress="checkNum"
+              maxlength="4"
+            />
           </div>
+          <span v-if="msg.phone1 || msg.phone2 || msg.phone3">{{ msg.phone1 || msg.phone2 || msg.phone3 }}</span>
         </div>
       </div>
 
@@ -83,8 +102,8 @@
           <input type="checkbox" id="checkbox2" v-model="checked2" />
           <span>만 14세 이상입니다.</span>
         </div>
+        <span class="error" v-if="msg.checked1 || msg.checked2">{{ msg.checked1 || msg.checked2 }}</span>
       </div>
-
       <div class="signUpBtn">
         <button
           v-bind:disabled="!isEmailValid || !password"
@@ -113,7 +132,8 @@ export default {
       phone3: "",
       msg: [],
       checked1: false,
-      checked2: false
+      checked2: false,
+      errors: []
     };
   },
   computed: {
@@ -144,6 +164,40 @@ export default {
     onSubmit() {
       console.log(`email : ${this.email}`);
       console.log(`password : ${this.password}`);
+      this.msg = [];
+      const {
+        email,
+        name,
+        password,
+        passwordConfirm,
+        phone1,
+        phone2,
+        phone3,
+        checked1,
+        checked2,
+      } = this;
+      if (!email) {
+        this.msg["email"] = '이메일 입력 필수';
+        this.$refs.emailInputStyle.style.border = "2px solid indianred";
+      }
+      if (!name) {
+        this.msg["name"] = '이름 입력 필수';
+        this.$refs.nameInputStyle.style.border = "2px solid indianred";
+      }
+      if (!password) {
+        this.msg["password"] = '비밀번호 필수';
+        this.$refs.passwordInputStyle.style.border = "2px solid indianred";
+      }
+      if (!passwordConfirm) {
+        this.msg["passwordConfirm"] = '비밀번호 재입력 필수';
+        this.$refs.passwordConfirmInputStyle.style.border = "2px solid indianred";
+      }
+      if (!phone1 || !phone2 || !phone3) {
+        this.msg["phone1" || "phone1" || "phone1"] = '휴대폰 번호 입력 필수';
+      }
+      if (!checked1 || !checked2) {
+        this.msg["checked1" || "checked2"] = '체크 필수'
+      }
     },
     // 유효성 검증
     validateEmail(value) {
@@ -191,6 +245,11 @@ export default {
       } else {
         this.msg["passwordConfirm"] = "";
         this.$refs.passwordConfirmInputStyle.style.border = "2px solid #41bfb9";
+      }
+    },
+    checkNum(e) {
+      if (e.keyCode < 48 || e.keyCode > 57) {
+        e.returnValue = false;
       }
     }
   }
@@ -264,6 +323,11 @@ export default {
     padding: 15px 0;
     font-size: 16px;
   }
+  span {
+    color: indianred;
+    display: block;
+    padding-top: 20px;
+  }
   div {
     display: flex;
     input {
@@ -291,6 +355,11 @@ export default {
   margin: auto;
   color: #ffffff;
   font-size: 15px;
+  .error {
+    color: indianred;
+    display: block;
+    padding-top: 20px;
+  }
   .agreeCheckBox {
     padding: 10px 0;
     display: flex;

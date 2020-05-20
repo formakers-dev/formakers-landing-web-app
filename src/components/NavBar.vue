@@ -23,9 +23,9 @@
       <b-navbar-item tag="div">
         <div class="buttons">
           <router-link to="signin">
-          <a class="button is-light">
-            LOG IN
-          </a>
+            <a class="button is-light">
+              LOG IN
+            </a>
           </router-link>
           <a class="button is-light">
             CART

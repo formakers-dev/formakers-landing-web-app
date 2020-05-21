@@ -5,7 +5,7 @@
       <span>로그인</span>
     </div>
 
-    <form v-on:submit.prevent="onSubmit">
+    <form v-on:submit.prevent>
       <div class="inputContainer">
         <div class="emailInput">
           <label for="email">이메일 *</label>
@@ -118,6 +118,7 @@
           v-bind:disabled="!isEmailValid || !password"
           type="submit"
           class="button is-medium is-warning"
+          v-on:click="onSubmit"
         >
           가입하기
         </button>
@@ -128,6 +129,7 @@
 
 <script>
 import { validateEmail } from "../utills/validation";
+import * as firebase from "firebase";
 
 export default {
   data() {
@@ -188,8 +190,8 @@ export default {
   methods: {
     // submit 이벤트
     onSubmit() {
-      console.log(`email : ${this.email}`);
-      console.log(`password : ${this.password}`);
+      // console.log(`email : ${this.email}`);
+      // console.log(`password : ${this.password}`);
       this.msg = [];
       const {
         email,
@@ -205,25 +207,34 @@ export default {
       if (!email) {
         this.msg["email"] = "이메일 입력 필수";
         this.$refs.emailInputStyle.style.border = "2px solid indianred";
-      }
-      if (!name) {
+      } else if (!name) {
         this.msg["name"] = "이름 입력 필수";
         this.$refs.nameInputStyle.style.border = "2px solid indianred";
-      }
-      if (!password) {
+      } else if (!password) {
         this.msg["password"] = "비밀번호 필수";
         this.$refs.passwordInputStyle.style.border = "2px solid indianred";
-      }
-      if (!passwordConfirm) {
+      } else if (!passwordConfirm) {
         this.msg["passwordConfirm"] = "비밀번호 재입력 필수";
         this.$refs.passwordConfirmInputStyle.style.border =
           "2px solid indianred";
-      }
-      if (!phone1 || !phone2 || !phone3) {
+      } else if (!phone1 || !phone2 || !phone3) {
         this.msg["phone1" || "phone1" || "phone1"] = "전화번호 입력 필수";
-      }
-      if (!checked1 || !checked2) {
+      } else if (!checked1 || !checked2) {
         this.msg["checked1" || "checked2"] = "체크 필수";
+      } else {
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then(
+            user => {
+              console.log(user.user.email);
+              alert(`가입완료 ${user.user.email}`);
+              this.$router.push("/signin");
+            },
+            err => {
+              alert(err.message);
+            }
+          );
       }
     },
     // 유효성 검증

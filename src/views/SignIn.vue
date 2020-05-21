@@ -5,7 +5,7 @@
       <span>로그인</span>
     </div>
 
-    <form v-on:submit.prevent="onSubmit">
+    <form v-on:submit.prevent>
       <div class="inputContainer">
         <div class="emailInput">
           <label for="email">이메일</label>
@@ -39,9 +39,9 @@
 
       <div class="signInBtn">
         <button
-          v-bind:disabled="!isEmailValid || !password"
           type="submit"
           class="button is-medium is-warning"
+          v-on:click="onSubmit"
         >
           로그인하기
         </button>
@@ -61,8 +61,6 @@
 </template>
 
 <script>
-import { validateEmail } from "../utills/validation";
-
 export default {
   data() {
     return {
@@ -70,11 +68,6 @@ export default {
       password: "",
       msg: []
     };
-  },
-  computed: {
-    isEmailValid() {
-      return validateEmail(this.email);
-    }
   },
   watch: {
     email(value) {
@@ -91,6 +84,14 @@ export default {
     onSubmit() {
       console.log(`email : ${this.email}`);
       console.log(`password : ${this.password}`);
+      this.msg = [];
+      const { email, password } = this;
+      if (!email || !password) {
+        this.msg["email"] = "이메일을 정확히 입력해주세요";
+        this.msg["password"] = `비밀번호를 6자 이상 입력해주세요.`;
+      } else {
+        alert("성공");
+      }
     },
     // 유효성 검증
     validateEmail(value) {
@@ -107,11 +108,11 @@ export default {
       }
     },
     validatePassword(value) {
-      let difference = 8 - value.length;
-      if (value.length < 8) {
+      let difference = 6 - value.length;
+      if (value.length < 6) {
         this.msg[
           "password"
-        ] = `8자 이상 입력해주세요. (현재 ${difference}자 이상 입력 필수)`;
+        ] = `비밀번호를 6자 이상 입력해주세요. (현재 ${difference}자 이상 입력 필수)`;
         this.$refs.passwordInputStyle.style.border = "2px solid indianred";
       } else {
         this.msg["password"] = "";

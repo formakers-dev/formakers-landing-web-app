@@ -2,7 +2,7 @@
   <div class="background">
     <div class="menuBackground"></div>
     <div class="loginTitle">
-      <span>로그인</span>
+      <span>회원가입</span>
     </div>
 
     <form v-on:submit.prevent>
@@ -115,7 +115,6 @@
       </div>
       <div class="signUpBtn">
         <button
-          v-bind:disabled="!isEmailValid || !password"
           type="submit"
           class="button is-medium is-warning"
           v-on:click="onSubmit"
@@ -128,7 +127,6 @@
 </template>
 
 <script>
-import { validateEmail } from "../utills/validation";
 import * as firebase from "firebase";
 
 export default {
@@ -145,11 +143,6 @@ export default {
       checked1: false,
       checked2: false
     };
-  },
-  computed: {
-    isEmailValid() {
-      return validateEmail(this.email);
-    }
   },
   watch: {
     email(value) {
@@ -169,18 +162,24 @@ export default {
       this.validatePasswordConfirm(value);
     },
     phone1(value) {
+      this.phone1 = value;
+      this.validatePhone(value);
       const reg = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
       if (reg.exec(value) !== null) {
         return (this.phone1 = this.phone1.slice(0, -1));
       }
     },
     phone2(value) {
+      this.phone2 = value;
+      this.validatePhone(value);
       const reg = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
       if (reg.exec(value) !== null) {
         return (this.phone2 = this.phone2.slice(0, -1));
       }
     },
     phone3(value) {
+      this.phone3 = value;
+      this.validatePhone(value);
       const reg = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
       if (reg.exec(value) !== null) {
         return (this.phone3 = this.phone3.slice(0, -1));
@@ -190,8 +189,6 @@ export default {
   methods: {
     // submit 이벤트
     onSubmit() {
-      // console.log(`email : ${this.email}`);
-      // console.log(`password : ${this.password}`);
       this.msg = [];
       const {
         email,
@@ -204,31 +201,41 @@ export default {
         checked1,
         checked2
       } = this;
-      if (!email) {
-        this.msg["email"] = "이메일 입력 필수";
-        this.$refs.emailInputStyle.style.border = "2px solid indianred";
-      } else if (!name) {
-        this.msg["name"] = "이름 입력 필수";
-        this.$refs.nameInputStyle.style.border = "2px solid indianred";
-      } else if (!password) {
-        this.msg["password"] = "비밀번호 필수";
-        this.$refs.passwordInputStyle.style.border = "2px solid indianred";
-      } else if (!passwordConfirm) {
-        this.msg["passwordConfirm"] = "비밀번호 재입력 필수";
+      if (
+        !email ||
+        !name ||
+        !password ||
+        !passwordConfirm ||
+        !phone1 ||
+        !phone2 ||
+        !phone3 ||
+        !checked1 ||
+        !checked2
+      ) {
+        this.msg["checked1"] = "모든 항목 입력 및 체크를 해주세요.";
+      }
+      if (name.length < 2) {
+        return true;
+      }
+      if (password !== passwordConfirm) {
+        this.msg["passwordConfirm"] = "비밀번호가 일치하지 않습니다.";
         this.$refs.passwordConfirmInputStyle.style.border =
           "2px solid indianred";
-      } else if (!phone1 || !phone2 || !phone3) {
-        this.msg["phone1" || "phone1" || "phone1"] = "전화번호 입력 필수";
-      } else if (!checked1 || !checked2) {
-        this.msg["checked1" || "checked2"] = "체크 필수";
+      }
+      if (!phone1 || !phone2 || !phone3) {
+        return true;
+      }
+      if (!checked1 || !checked2) {
+        return true;
       } else {
         firebase
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(
             user => {
-              console.log(user.user.email);
-              alert(`가입완료 ${user.user.email}`);
+              const userEmail = user.user.email;
+              console.log(user.user);
+              alert(`가입완료 ${userEmail}`);
               this.$router.push("/signin");
             },
             err => {
@@ -239,11 +246,8 @@ export default {
     },
     // 유효성 검증
     validateEmail(value) {
-      if (
-        /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/.test(
-          value
-        )
-      ) {
+      const re = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
+      if (re.test(value)) {
         this.msg["email"] = "";
         this.$refs.emailInputStyle.style.border = "2px solid #41bfb9";
       } else {
@@ -252,7 +256,7 @@ export default {
       }
     },
     validateName(value) {
-      if (value.length < 3) {
+      if (value.length < 2) {
         // console.log(value.length);
         this.msg["name"] = `이름을 정확히 입력해주세요.`;
         this.$refs.nameInputStyle.style.border = "2px solid indianred";
@@ -262,11 +266,11 @@ export default {
       }
     },
     validatePassword(value) {
-      let difference = 8 - value.length;
-      if (value.length < 8) {
+      let difference = 6 - value.length;
+      if (value.length < 6) {
         this.msg[
           "password"
-        ] = `8자 이상 입력해주세요. (현재 ${difference}자 이상 입력 필수)`;
+        ] = `비밀번호를 6자 이상 입력해주세요. (현재 ${difference}자 이상 입력 필수)`;
         this.$refs.passwordInputStyle.style.border = "2px solid indianred";
       } else {
         this.msg["password"] = "";
@@ -275,14 +279,26 @@ export default {
     },
     validatePasswordConfirm(value) {
       if (this.password !== value) {
-        // console.log(this.password);
-        // console.log(value);
         this.msg["passwordConfirm"] = `비밀번호가 일치하지 않습니다`;
         this.$refs.passwordConfirmInputStyle.style.border =
           "2px solid indianred";
       } else {
         this.msg["passwordConfirm"] = "";
         this.$refs.passwordConfirmInputStyle.style.border = "2px solid #41bfb9";
+      }
+    },
+    validatePhone() {
+      if (this.phone1.length && this.phone2.length && this.phone3.length < 4) {
+        this.msg["phone1" && "phone1" && "phone1"] =
+          "전화번호를 정확히 입력해주세요.";
+        this.$refs.phoneInputStyle1.style.border = "2px solid indianred";
+        this.$refs.phoneInputStyle2.style.border = "2px solid indianred";
+        this.$refs.phoneInputStyle3.style.border = "2px solid indianred";
+      } else {
+        this.msg["phone1" && "phone1" && "phone1"] = "";
+        this.$refs.phoneInputStyle1.style.border = "2px solid #41bfb9";
+        this.$refs.phoneInputStyle2.style.border = "2px solid #41bfb9";
+        this.$refs.phoneInputStyle3.style.border = "2px solid #41bfb9";
       }
     },
     checkNum(e) {
@@ -297,7 +313,7 @@ export default {
 <style scoped lang="scss">
 .background {
   background-color: #333333;
-  height: 1200px;
+  height: 1250px;
 }
 
 //메뉴 백그라운드

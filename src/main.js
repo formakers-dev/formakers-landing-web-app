@@ -11,7 +11,7 @@ Vue.use(Buefy);
 Vue.config.productionTip = false;
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyAhoLfrNWG70DezPBPLnLtPnx-NtKMA4gM",
   authDomain: "dragonserver-627cc.firebaseapp.com",
   databaseURL: "https://dragonserver-627cc.firebaseio.com",

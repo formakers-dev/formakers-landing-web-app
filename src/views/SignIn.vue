@@ -41,7 +41,7 @@
         <button
           type="submit"
           class="button is-medium is-warning"
-          v-on:click="onSubmit"
+          v-on:click="login"
         >
           로그인하기
         </button>
@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
   data() {
     return {
@@ -81,16 +83,29 @@ export default {
   },
   methods: {
     // submit 이벤트
-    onSubmit() {
-      console.log(`email : ${this.email}`);
-      console.log(`password : ${this.password}`);
+    login() {
+      // console.log(`email : ${this.email}`);
+      // console.log(`password : ${this.password}`);
       this.msg = [];
       const { email, password } = this;
       if (!email || !password) {
         this.msg["email"] = "이메일을 정확히 입력해주세요";
         this.msg["password"] = `비밀번호를 6자 이상 입력해주세요.`;
       } else {
-        alert("성공");
+        firebase
+          .auth()
+          .signInWithEmailAndPassword(this.email, this.password)
+          .then(
+            user => {
+              const userEmail = user.user.email;
+              console.log(user.user);
+              alert(`로그인완료 ${userEmail}`);
+              this.$router.push("/");
+            },
+            err => {
+              alert(err.message);
+            }
+          );
       }
     },
     // 유효성 검증

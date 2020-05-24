@@ -236,7 +236,7 @@ export default {
             console.log(user);
             user.updateProfile({
               displayName: this.name,
-              phoneNumber: this.phone1,
+              phoneNumber: this.phone1
             });
             alert(`${user.email} 로 가입이 완료되었습니다!`);
             this.$router.push("/signin");

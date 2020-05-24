@@ -27,6 +27,9 @@
               LOG IN
             </a>
           </router-link>
+          <a class="button is-light" v-on:click="logout">
+            LOG OUT
+          </a>
           <a class="button is-light">
             CART
           </a>
@@ -37,7 +40,32 @@
 </template>
 
 <script>
-export default {};
+import firebase from "firebase";
+
+export default {
+  data() {
+    return {
+      uid: ""
+    };
+  },
+  methods: {
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(user => {
+          alert("로그아웃 성공");
+          this.$router.replace("/signin");
+          return user;
+        })
+        .catch(function(error) {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage + errorCode);
+        });
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">

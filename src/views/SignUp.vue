@@ -231,17 +231,21 @@ export default {
         firebase
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
-          .then(
-            user => {
-              const userEmail = user.user.email;
-              console.log(user.user);
-              alert(`가입완료 ${userEmail}`);
-              this.$router.push("/signin");
-            },
-            err => {
-              alert(err.message);
-            }
-          );
+          .then(() => {
+            const user = firebase.auth().currentUser;
+            console.log(user);
+            user.updateProfile({
+              displayName: this.name,
+              phoneNumber: this.phone1,
+            });
+            alert(`${user.email} 로 가입이 완료되었습니다!`);
+            this.$router.push("/signin");
+          })
+          .catch(function(error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage + errorCode);
+          });
       }
     },
     // 유효성 검증

@@ -93,19 +93,19 @@ export default {
         this.msg["password"] = `비밀번호를 6자 이상 입력해주세요.`;
       } else {
         firebase
-          .auth()
-          .signInWithEmailAndPassword(this.email, this.password)
-          .then(
-            user => {
-              const userEmail = user.user.email;
-              console.log(user.user);
-              alert(`로그인완료 ${userEmail}`);
-              this.$router.push("/");
-            },
-            err => {
-              alert(err.message);
-            }
-          );
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then( () => {
+          const user = firebase.auth().currentUser;
+          console.log(user);
+          alert(`로그인 완료 ${user.email}`);
+          this.$router.push("/");
+        })
+        .catch(function(error) {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorMessage + errorCode);
+        });
       }
     },
     // 유효성 검증

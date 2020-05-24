@@ -1,12 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home";
-import Process from "../views/Process";
-import Company from "../views/Company";
-import SignIn from "../views/SignIn";
-import SignUp from "../views/SignUp";
-import Policy from "../views/Policy";
-import SignupPrivacy from "../views/SignupPrivacy";
 
 Vue.use(VueRouter);
 
@@ -19,31 +12,31 @@ export const router = new VueRouter({
     },
     {
       path: "/home",
-      component: Home
+      component: () => import("../views/Home")
     },
     {
       path: "/process",
-      component: Process
+      component: () => import("../views/Process")
     },
     {
       path: "/company",
-      component: Company
+      component: () => import("../views/Company")
     },
     {
       path: "/signin",
-      component: SignIn
+      component: () => import("../views/SignIn")
     },
     {
       path: "/signup",
-      component: SignUp
+      component: () => import("../views/SignUp")
     },
     {
       path: "/policy",
-      component: Policy
+      component: () => import("../views/Policy")
     },
     {
       path: "/SignupPrivacy",
-      component: SignupPrivacy
+      component: () => import("../views/SignupPrivacy")
     }
   ],
   scrollBehavior() {

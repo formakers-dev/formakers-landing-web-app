@@ -22,14 +22,15 @@
     <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <router-link to="signin">
-            <a class="button is-light">
-              LOG IN
-            </a>
-          </router-link>
-          <a class="button is-light" v-on:click="logout">
+          <a class="button is-light" v-if="isLogin" v-on:click="logout">
             LOG OUT
           </a>
+          <a class="button is-light" v-else>
+            <router-link to="signin">
+              LOG IN
+            </router-link>
+          </a>
+
           <a class="button is-light">
             CART
           </a>
@@ -45,7 +46,7 @@ import firebase from "firebase";
 export default {
   data() {
     return {
-      uid: ""
+      isLogin: false
     };
   },
   methods: {
@@ -64,6 +65,12 @@ export default {
           alert(errorMessage + errorCode);
         });
     }
+  },
+  mounted() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) this.isLogin = true;
+      else this.isLogin = false;
+    });
   }
 };
 </script>

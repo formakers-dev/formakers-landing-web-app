@@ -232,13 +232,7 @@ export default {
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password)
           .then(() => {
-            const user = firebase.auth().currentUser;
-            console.log(user);
-            user.updateProfile({
-              displayName: this.name,
-              phoneNumber: this.phone1
-            });
-            alert(`${user.email} 로 가입이 완료되었습니다!`);
+            alert(`${this.name} 로 가입이 완료되었습니다!`);
             this.$router.push("/signin");
           })
           .catch(function(error) {

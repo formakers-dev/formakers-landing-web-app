@@ -33,7 +33,9 @@
       </div>
 
       <div class="infoBox">
-        <span>비밀번호 찾기</span>
+        <router-link to="/findPassword">
+          <span>비밀번호 찾기</span>
+        </router-link>
         <span>비회원 주문 조회하기</span>
       </div>
 
@@ -94,7 +96,13 @@ export default {
       } else {
         firebase
           .auth()
-          .signInWithEmailAndPassword(this.email, this.password)
+          .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+          .then(() => {
+            console.log("####", this);
+            return firebase
+              .auth()
+              .signInWithEmailAndPassword(this.email, this.password);
+          })
           .then(() => {
             const user = firebase.auth().currentUser;
             console.log(user);

@@ -39,8 +39,12 @@ export const router = new VueRouter({
       component: () => import("../views/SignupPrivacy")
     },
     {
-      path: '*',
-      component: () => import('../views/NotFoundPage')
+      path: "/findPassword",
+      component: () => import("../views/FindPassword")
+    },
+    {
+      path: "*",
+      component: () => import("../views/NotFoundPage")
     }
   ],
   scrollBehavior() {

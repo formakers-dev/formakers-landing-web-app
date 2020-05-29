@@ -9,7 +9,7 @@
       <b-navbar-item tag="router-link" :to="{ path: '/' }">
         HOME
       </b-navbar-item>
-      <b-navbar-item href="#">
+      <b-navbar-item tag="router-link" :to="{path: '/plan'}">
         플랜 소개
       </b-navbar-item>
       <b-navbar-item tag="router-link" :to="{ path: '/process' }">

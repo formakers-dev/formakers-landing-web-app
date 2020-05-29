@@ -43,9 +43,13 @@ export const router = new VueRouter({
       component: () => import("../views/FindPassword")
     },
     {
+      path: '/plan',
+      component: () => import('../views/Plan')
+    },
+    {
       path: "*",
       component: () => import("../views/NotFoundPage")
-    }
+    },
   ],
   scrollBehavior() {
     document.getElementById("app").scrollIntoView();

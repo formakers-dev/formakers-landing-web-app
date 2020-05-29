@@ -68,8 +68,13 @@ export default {
   },
   mounted() {
     firebase.auth().onAuthStateChanged(user => {
-      if (user) this.isLogin = true;
-      else this.isLogin = false;
+      if (user) {
+        this.isLogin = true;
+        // this.currentUser.email = user.email
+        // this.currentUser.username = user.displayName
+      } else {
+        this.isLogin = false;
+      }
     });
   }
 };

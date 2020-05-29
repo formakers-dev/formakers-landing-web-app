@@ -186,6 +186,9 @@
         </div>
       </div>
     </div>
+    <div class="backgroundDiv2 five">
+      <div class="backgroundColor"></div>
+    </div>
   </div>
 </template>
 
@@ -254,6 +257,23 @@ export default {
 }
 .four {
   background-image: url("../assets/images/home_back5.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: block;
+  position: relative;
+  .backgroundColor {
+    background-color: #000000;
+    opacity: 0.5;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+.five {
+  background-image: url("../assets/images/home_back6.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

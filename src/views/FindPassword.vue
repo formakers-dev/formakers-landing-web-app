@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import * as firebase from "firebase/app";
 
 export default {
   data() {
@@ -60,6 +60,7 @@ export default {
   watch: {
     name(value) {
       this.name = value;
+      this.validateName(value);
     },
     email(value) {
       this.email = value;
@@ -68,20 +69,39 @@ export default {
   },
   methods: {
     findPassword() {
-      firebase
-        .auth()
-        .sendPasswordResetEmail(this.email)
-        .then(() => {
-          alert("비밀번호 초기화! 이메일을 확인해주세요.");
-          console.log(this.name);
-        })
-        .catch(function(error) {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(errorMessage + errorCode);
-        });
+      this.msg = [];
+      const { email, name } = this;
+      if (!email || !name) {
+        this.msg["email"] = "모든 항목을 입력해주세요.";
+      }
+      if (name.length < 2) {
+        return true;
+      } else {
+        firebase
+          .auth()
+          .sendPasswordResetEmail(this.email)
+          .then(() => {
+            alert("발송 완료! 이메일을 확인해주세요.");
+            console.log(this.name);
+          })
+          .catch(function(error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage + errorCode);
+          });
+      }
     },
     // 유효성 검증
+    validateName(value) {
+      if (value.length < 2) {
+        // console.log(value.length);
+        this.msg["name"] = `이름을 정확히 입력해주세요.`;
+        this.$refs.nameInputStyle.style.border = "2px solid indianred";
+      } else {
+        this.msg["name"] = "";
+        this.$refs.nameInputStyle.style.border = "2px solid #41bfb9";
+      }
+    },
     validateEmail(value) {
       if (
         /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/.test(

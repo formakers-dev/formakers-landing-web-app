@@ -95,9 +95,11 @@
             <br />
             <section>
               <div class="buttons">
-                <button class="button is-medium is-warning" @click="warning">
-                  테스트 플랜 보기
-                </button>
+                <router-link to="/plan">
+                  <button class="button is-medium is-warning">
+                    테스트 플랜 보기
+                  </button>
+                </router-link>
               </div>
             </section>
           </div>
@@ -108,24 +110,7 @@
 </template>
 
 <script>
-export default {
-  methods: {
-    snackbar() {
-      this.$buefy.snackbar.open(
-        `Default, positioned bottom-right with a green 'OK' button`
-      );
-    },
-    warning() {
-      this.$buefy.snackbar.open({
-        message: "🚨 버튼이 클릭되었습니다!!! 🚨",
-        type: "is-warning",
-        position: "is-top",
-        actionText: "OK",
-        indefinite: true
-      });
-    }
-  }
-};
+export default {};
 </script>
 
 <style scoped lang="scss">

@@ -29,7 +29,10 @@
 
 <script>
 export default {
-  name: "Product"
+  name: "Product",
+  data() {
+    return {};
+  }
 };
 </script>
 

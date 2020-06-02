@@ -100,11 +100,63 @@
         <p class="serviceTitle">게임사 규모에 맞춘 테스트 플랜</p>
         <div class="divisionLine"></div>
         <p class="serviceSub">부담 없는 트라이얼부터 디테일한 스탠다드까지.</p>
+        <div>
+          <VueSlickCarousel class="carouselContainer" v-bind="carouselSettings">
+            <div>
+              <div class="carouselCard">
+                <img
+                  class="cardImg"
+                  src="../assets/images/standard.png"
+                  alt=""
+                />
+                <span class="firstSub">스탠다드 플랜</span>
+                <span class="secondSub">1,727,000원</span>
+              </div>
+            </div>
+            <div>
+              <div class="carouselCard">
+                <img class="cardImg" src="../assets/images/trial.png" alt="" />
+                <div class="backgroundColor"></div>
+                <span class="firstSub">[이벤트] 트라이얼 플랜</span>
+                <span class="trialMainPrice"
+                  >0원 <span class="trialPrice">80,000원</span></span
+                >
+              </div>
+            </div>
+            <div>
+              <div class="carouselCard">
+                <img
+                  class="cardImg"
+                  src="../assets/images/starter.png"
+                  alt=""
+                />
+                <span class="firstSub">스타터 플랜</span>
+                <span class="secondSub">110,000원</span>
+              </div>
+            </div>
+            <div>
+              <div class="carouselCard">
+                <img class="cardImg" src="../assets/images/lite.png" alt="" />
+                <span class="firstSub">라이트 플랜</span>
+                <span class="secondSub">407,000원</span>
+              </div>
+            </div>
+            <div>
+              <div class="carouselCard">
+                <img class="cardImg" src="../assets/images/simple.png" alt="" />
+                <span class="firstSub">심플 플랜</span>
+                <span class="secondSub">737,000원</span>
+              </div>
+            </div>
+          </VueSlickCarousel>
+        </div>
         <section>
           <div class="buttons">
-            <button class="button is-medium is-warning" @click="warning">
-              자세히 보기
-            </button>
+            <router-link to="/plan">
+              <button class="button is-medium is-warning">
+                자세히 보기
+              </button>
+            </router-link>
           </div>
         </section>
       </div>
@@ -128,6 +180,57 @@
           <div class="teamBody">
             포메이커스는 삼성전자에서 직접 선정하고, <br />삼성벤처투자에서
             투자한 주목받는 스타트업입니다.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contentBox">
+      <p>이보림 대표 강연</p>
+    </div>
+    <div class="serviceContainer">
+      <div>
+        <p class="serviceTitle">작은 회사도 직접 유저검증 할 수 있습니다.</p>
+        <div class="divisionLine" style="width: 50%"></div>
+        <p class="serviceSub">
+          포메이커스는 직접 유저 검증에 들어가는 시간과 돈을 아껴드립니다.
+          <br />
+          하지만 작은 기업에서는 작은 돈이어도 투자하기 어려울 수 있죠. <br />
+          그럴땐 아래 강의 영상을 보고 직접 시도해보실 수 있습니다.
+        </p>
+        <div
+          style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%;"
+        >
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/pmLfVsxBXP0"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="backgroundDiv2 four">
+      <div class="backgroundColor"></div>
+      <div>
+        <div class="feedbackContainer">
+          <div class="feedbackTitle">
+            유저 피드백 만큼 값진 것은 없습니다.<br />
+            <div class="feedbackBody">
+              진짜 게이머에게 내 게임에 대한 의견을 들어보세요.
+            </div>
+            <br />
+            <section>
+              <div class="buttons">
+                <router-link to="/plan">
+                  <button class="button is-medium is-warning">
+                    테스트 플랜 보기
+                  </button>
+                </router-link>
+              </div>
+            </section>
           </div>
         </div>
       </div>
@@ -165,35 +268,47 @@
         <img src="../assets/images/partner_logo.png" alt="" />
       </div>
     </div>
-    <div class="backgroundDiv2 four">
+    <div class="backgroundDiv2 five">
       <div class="backgroundColor"></div>
       <div>
-        <div class="feedbackContainer">
-          <div class="feedbackTitle">
-            유저 피드백 만큼 값진 것은 없습니다.<br />
-            <div class="feedbackBody">
-              진짜 게이머에게 내 게임에 대한 의견을 들어보세요.
+        <div class="planContainer">
+          <div class="planTitle">
+            어떤 플랜이 괜찮을지 고민되시나요?<br />
+            <div class="planBody">
+              오른쪽 아래 초록색 버튼으로 채팅상담이 가능합니다.<br />
+              궁금하신 점을 알려주시면 안내드리도록 하겠습니다.
+            </div>
+            <div class="planBody2">
+              (채팅 상담 시간 : 평일 11시 ~ 19시)
             </div>
             <br />
-            <section>
-              <div class="buttons">
-                <button class="button is-medium is-warning" @click="warning">
-                  테스트 플랜 보기
-                </button>
-              </div>
-            </section>
           </div>
         </div>
       </div>
-    </div>
-    <div class="backgroundDiv2 five">
-      <div class="backgroundColor"></div>
     </div>
   </div>
 </template>
 
 <script>
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
 export default {
+  components: { VueSlickCarousel },
+  data() {
+    return {
+      carouselSettings: {
+        arrows: true,
+        touchMove: true,
+        infinite: true,
+        speed: 500,
+        swipeToSlide: true,
+        slidesToScroll: 1,
+        slidesToShow: 4.999
+      }
+    };
+  },
   methods: {
     snackbar() {
       this.$buefy.snackbar.open(
@@ -521,7 +636,7 @@ export default {
     line-height: 1.5em;
   }
   .divisionLine {
-    width: 100%;
+    width: 30%;
     background-color: #00bfba;
     min-height: 1px;
     display: inline-block;
@@ -561,6 +676,49 @@ export default {
         color: #ffffff;
         font-weight: bold;
         border-color: #53c6c2;
+      }
+    }
+  }
+}
+
+.carouselContainer {
+  width: 1500px;
+
+  .carouselCard {
+    margin: 10px 10px 15px 10px;
+    cursor: pointer;
+
+    .firstSub {
+      font-size: 20px;
+      color: #ffffff;
+      display: block;
+      font-weight: bold;
+    }
+
+    .secondSub {
+      font-size: 16px;
+      color: #bdbdbd;
+      display: block;
+      margin: 10px 0 20px 0;
+    }
+
+    .trialMainPrice {
+      font-size: 16px;
+      color: red;
+      display: block;
+      margin: 10px 0 20px 0;
+      .trialPrice {
+        color: #bdbdbd;
+        text-decoration: line-through;
+        text-decoration-color: #bdbdbd;
+        text-decoration-style: solid;
+      }
+    }
+    .cardImg {
+      width: 100%;
+      margin: 30px 0;
+      &:hover {
+        opacity: 80%;
       }
     }
   }
@@ -907,6 +1065,60 @@ export default {
       .button.is-medium {
         font-size: 15px;
       }
+    }
+  }
+}
+
+// 채팅상담 백그라운드
+.planContainer {
+  max-width: 1480px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .planTitle {
+    z-index: 10000;
+    max-width: 800px;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 50px;
+    text-align: inherit;
+    letter-spacing: 0.02em;
+    line-height: 0.7em;
+  }
+  .planBody {
+    margin-top: 50px;
+    vertical-align: middle;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    font-size: 25px;
+    text-align: inherit;
+    letter-spacing: 0.02em;
+    line-height: 2em;
+  }
+  .planBody2 {
+    vertical-align: middle;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    font-size: 17px;
+    text-align: inherit;
+    letter-spacing: 0.02em;
+    line-height: 2em;
+  }
+}
+@media screen and (max-width: 640px) {
+  .backgroundDiv2 .planContainer {
+    .planTitle {
+      font-size: 24px;
+    }
+    .planBody {
+      margin: 20px 0 20px 0;
+      font-size: 15px;
+    }
+    .planBody2 {
+      font-size: 13px;
     }
   }
 }

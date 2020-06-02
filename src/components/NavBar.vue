@@ -18,6 +18,9 @@
       <b-navbar-item tag="router-link" :to="{ path: '/company' }">
         회사 소개
       </b-navbar-item>
+      <b-navbar-item tag="router-link" :to="{ path: '/' }">
+        후기 게시판
+      </b-navbar-item>
     </template>
     <template slot="end">
       <b-navbar-item tag="div">

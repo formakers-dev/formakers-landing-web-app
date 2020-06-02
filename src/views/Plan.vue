@@ -81,14 +81,14 @@
     <div class="backgroundDiv2 five">
       <div class="backgroundColor"></div>
       <div>
-        <div class="feedbackContainer">
-          <div class="feedbackTitle">
+        <div class="planContainer">
+          <div class="planTitle">
             어떤 플랜이 괜찮을지 고민되시나요?<br />
-            <div class="feedbackBody">
+            <div class="planBody">
               오른쪽 아래 초록색 버튼으로 채팅상담이 가능합니다.<br />
               궁금하신 점을 알려주시면 안내드리도록 하겠습니다.
             </div>
-            <div class="feedbackBody2">
+            <div class="planBody2">
               (채팅 상담 시간 : 평일 11시 ~ 19시)
             </div>
             <br />
@@ -281,7 +281,7 @@ export default {
   }
 }
 
-// 유저 피드백
+// 채팅상담 백그라운드
 .backgroundDiv2 {
   width: 100vw;
   height: 100vh;
@@ -298,14 +298,14 @@ export default {
   font-size: 100%;
   text-align: center;
 }
-.feedbackContainer {
+.planContainer {
   max-width: 1480px;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  .feedbackTitle {
+  .planTitle {
     z-index: 10000;
     max-width: 800px;
     width: 100%;
@@ -316,7 +316,7 @@ export default {
     letter-spacing: 0.02em;
     line-height: 0.7em;
   }
-  .feedbackBody {
+  .planBody {
     margin-top: 50px;
     vertical-align: middle;
     color: rgb(255, 255, 255);
@@ -326,7 +326,7 @@ export default {
     letter-spacing: 0.02em;
     line-height: 2em;
   }
-  .feedbackBody2 {
+  .planBody2 {
     vertical-align: middle;
     color: rgb(255, 255, 255);
     font-weight: 400;
@@ -337,15 +337,15 @@ export default {
   }
 }
 @media screen and (max-width: 640px) {
-  .backgroundDiv2 .feedbackContainer {
-    .feedbackTitle {
+  .backgroundDiv2 .planContainer {
+    .planTitle {
       font-size: 24px;
     }
-    .feedbackBody {
+    .planBody {
       margin: 20px 0 20px 0;
       font-size: 15px;
     }
-    .feedbackBody2 {
+    .planBody2 {
       font-size: 13px;
     }
   }

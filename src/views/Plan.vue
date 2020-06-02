@@ -25,6 +25,56 @@
         <p class="pricingSub">
           아래 이미지를 클릭하여 자세한 설명 확인 & 구매가 가능합니다.
         </p>
+        <div>
+          <VueSlickCarousel class="carouselContainer" v-bind="carouselSettings">
+            <div>
+              <div class="carouselCard">
+                <img
+                  class="cardImg"
+                  src="../assets/images/standard.png"
+                  alt=""
+                />
+                <span class="firstSub">스탠다드 플랜</span>
+                <span class="secondSub">1,727,000원</span>
+              </div>
+            </div>
+            <div>
+              <div class="carouselCard">
+                <img class="cardImg" src="../assets/images/trial.png" alt="" />
+                <div class="backgroundColor"></div>
+                <span class="firstSub">[이벤트] 트라이얼 플랜</span>
+                <span class="trialMainPrice"
+                  >0원 <span class="trialPrice">80,000원</span></span
+                >
+              </div>
+            </div>
+            <div>
+              <div class="carouselCard">
+                <img
+                  class="cardImg"
+                  src="../assets/images/starter.png"
+                  alt=""
+                />
+                <span class="firstSub">스타터 플랜</span>
+                <span class="secondSub">110,000원</span>
+              </div>
+            </div>
+            <div>
+              <div class="carouselCard">
+                <img class="cardImg" src="../assets/images/lite.png" alt="" />
+                <span class="firstSub">라이트 플랜</span>
+                <span class="secondSub">407,000원</span>
+              </div>
+            </div>
+            <div>
+              <div class="carouselCard">
+                <img class="cardImg" src="../assets/images/simple.png" alt="" />
+                <span class="firstSub">심플 플랜</span>
+                <span class="secondSub">737,000원</span>
+              </div>
+            </div>
+          </VueSlickCarousel>
+        </div>
       </div>
     </div>
 
@@ -50,7 +100,26 @@
 </template>
 
 <script>
-export default {};
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
+
+export default {
+  components: { VueSlickCarousel },
+  data() {
+    return {
+      carouselSettings: {
+        arrows: true,
+        touchMove: true,
+        infinite: true,
+        speed: 500,
+        swipeToSlide: true,
+        slidesToScroll: 1,
+        slidesToShow: 4.999
+      }
+    };
+  }
+};
 </script>
 
 <style scoped lang="scss">
@@ -156,6 +225,7 @@ export default {};
     line-height: 2em;
   }
 }
+
 @media screen and (max-width: 640px) {
   .pricingContainer {
     .pricingTitle {
@@ -163,6 +233,50 @@ export default {};
     }
     .pricingSub {
       font-size: 12px;
+    }
+  }
+}
+
+.carouselContainer {
+  margin-bottom: 30px;
+  width: 1500px;
+
+  .carouselCard {
+    margin: 10px 10px 15px 10px;
+    cursor: pointer;
+
+    .firstSub {
+      font-size: 20px;
+      color: #ffffff;
+      display: block;
+      font-weight: bold;
+    }
+
+    .secondSub {
+      font-size: 16px;
+      color: #bdbdbd;
+      display: block;
+      margin: 10px 0 50px 0;
+    }
+
+    .trialMainPrice {
+      font-size: 16px;
+      color: red;
+      display: block;
+      margin: 10px 0 50px 0;
+      .trialPrice {
+        color: #bdbdbd;
+        text-decoration: line-through;
+        text-decoration-color: #bdbdbd;
+        text-decoration-style: solid;
+      }
+    }
+    .cardImg {
+      width: 100%;
+      margin: 30px 0;
+      &:hover {
+        opacity: 80%;
+      }
     }
   }
 }

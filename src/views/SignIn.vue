@@ -141,7 +141,7 @@ export default {
         this.msg["password"] = "";
         this.$refs.passwordInputStyle.style.border = "2px solid #41bfb9";
       }
-    },
+    }
   }
 };
 </script>

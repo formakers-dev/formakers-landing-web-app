@@ -1,0 +1,68 @@
+{
+  "plan": "standard",
+  "title": "스탠다드 플랜",
+  "description": [
+    "[ 대형 게임사를 위한 디테일 플랜 ]",
+    "* 게임설치 + 플레이 + 설문 + 리포트+ 데이터",
+    "* Standard Only 맞춤 분석 리포트 제공",
+    "* 30명 결과 제공 (인원 추가 가능 / +20명)",
+    "* 클로즈 베타 테스트 가능 (옵션 추가)",
+    "* VAT 포함"
+  ],
+  "productImages": [
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1586858332300_1000.png",
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1587458476618_1000.png",
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1587458476748_1000.png",
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1587458476861_1000.png",
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1587458476961_1000.png",
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1587458477093_1000.png",
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1587458477245_1000.png",
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1587458477347_1000.png",
+    "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1587458477497_1000.png"
+  ],
+  "isAvailable": true,
+  "price": 1727000,
+  "eventPrice": null,
+  "options": [
+    {
+      "title": "인원 추가",
+      "inputType": "select",
+      "isMandatory": true,
+      "data": [
+        {
+          "label": "10명 추가",
+          "price": 550000,
+          "value": 10
+        },
+        {
+          "label": "20명 추가",
+          "price": 1100000,
+          "value": 20
+        }
+      ]
+    },
+    {
+      "title": "오픈베타/클로즈베타",
+      "inputType": "select",
+      "isMandatory": true,
+      "data": [
+        {
+          "label": "오픈베타",
+          "price": 0,
+          "value": "open"
+        },
+        {
+          "label": "클로즈베타",
+          "price": 300000,
+          "value": "close"
+        }
+      ]
+    },
+    {
+      "title": "원하시는 테스트 시작 날짜를 적어주세요. (필수)",
+      "inputType": "date",
+      "isMandatory": true
+    }
+  ],
+  "contents": "<div>블라블라블라</div>"
+}

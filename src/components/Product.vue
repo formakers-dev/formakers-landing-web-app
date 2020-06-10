@@ -314,7 +314,7 @@ export default {
       selected2: "",
       selected3: "",
       selectTotal: false,
-      images: "",
+      images: ""
     };
   },
   filters: {

@@ -6,9 +6,7 @@
       <div style="display: flex; justify-content: center; padding: 0 40px">
         <div class="productBox">
           <div>
-            <p class="productTitle">
-              {{ data.title }}
-            </p>
+            <p class="productTitle">{{ data.title }} + {{ testText }}</p>
             <p
               class="productSub"
               v-for="(items, index) in data.description"
@@ -23,10 +21,14 @@
               <label for="selected1" class="selectInput" v-if="data.options">{{
                 data.options[0].title
               }}</label>
-              <select id="selected1" v-model="selected1">
+              <select id="selected1" v-model="selected1" v-if="data.options">
                 <option disabled value="">선택하세요.</option>
-                <option>10명 추가 (+500,000원)</option>
-                <option>20명 추가 (+1,000,000원)</option>
+                <option>{{
+                  `${data.options[0].data[0].label} (+${data.options[0].data[0].price}원)`
+                }}</option>
+                <option>{{
+                  `${data.options[0].data[1].label} (+${data.options[0].data[1].price}원)`
+                }}</option>
                 <option>인원 추가 안함</option>
               </select>
             </div>
@@ -35,10 +37,12 @@
               <label for="selected2" class="selectInput" v-if="data.options">{{
                 data.options[1].title
               }}</label>
-              <select id="selected2" v-model="selected2">
+              <select id="selected2" v-model="selected2" v-if="data.options">
                 <option disabled value="">선택하세요.</option>
-                <option>클로즈베타 (+300,000원)</option>
-                <option>오픈베타</option>
+                <option>{{ data.options[1].data[0].label }}</option>
+                <option>{{
+                  `${data.options[1].data[1].label} (+${data.options[1].data[1].price}원)`
+                }}</option>
               </select>
             </div>
 
@@ -56,9 +60,12 @@
 
             <!-- select total 테스트 -->
             <div class="selectTotalBox" v-if="selectTotal">
+              <!--            <div class="selectTotalBox">-->
+
               <span style="color: red"
                 >{{ selected1 }} / {{ selected2 }} / {{ selected3 }}
               </span>
+              <div></div>
             </div>
 
             <div style="display: flex">
@@ -88,7 +95,12 @@
         <!-- 이미지 탭 -->
         <div class="productImgContainer">
           <div class="productTitleImgBox">
-            <img ref="titleImg" src="../assets/images/standard.png" alt="" />
+            <img
+              ref="titleImg"
+              v-if="data.productImages"
+              :src="data.productImages[0]"
+              alt=""
+            />
           </div>
 
           <div class="productImgBox" v-if="data.productImages">
@@ -310,11 +322,13 @@ export default {
   name: "Product",
   data() {
     return {
+      props: ["title"],
       selected1: "",
       selected2: "",
       selected3: "",
       selectTotal: false,
-      images: ""
+      images: "",
+      testText: "test"
     };
   },
   filters: {
@@ -324,16 +338,19 @@ export default {
     }
   },
   mounted() {
-    this.init();
+    this.testText = this.$route.params.title;
+    this.getProductData();
   },
   computed: {
     ...mapState({
-      data: "db"
+      // 1: getter 함수를 생성하는 mapState 헬퍼
+      data: "productList" // ㄴ this.data 를 store.state.productList 에 매핑
     })
   },
   methods: {
     ...mapActions({
-      init: "dbInit"
+      // 2: 컴포넌트 method를 store.dispatch 호출에 매핑하는 mapActions 헬퍼
+      getProductData: "getData" // ㄴ this.getProductData() 을 $store.dispatch('getData') 에 매핑
     }),
     buyTotal() {
       this.selectTotal = true;

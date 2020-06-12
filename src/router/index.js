@@ -48,7 +48,9 @@ export const router = new VueRouter({
     },
     {
       path: "/product",
-      component: () => import("../components/Product")
+      name: "Product",
+      component: () => import("../components/Product"),
+      props: true
     },
     {
       path: "*",

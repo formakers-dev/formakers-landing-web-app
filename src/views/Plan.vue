@@ -27,50 +27,15 @@
         </p>
         <div>
           <VueSlickCarousel class="carouselContainer" v-bind="carouselSettings">
-            <div>
-              <div class="carouselCard">
-                <img
-                  class="cardImg"
-                  src="../assets/images/standard.png"
-                  alt=""
-                />
-                <span class="firstSub">스탠다드 플랜</span>
-                <span class="secondSub">1,727,000원</span>
-              </div>
-            </div>
-            <div>
-              <div class="carouselCard">
-                <img class="cardImg" src="../assets/images/trial.png" alt="" />
-                <div class="backgroundColor"></div>
-                <span class="firstSub">[이벤트] 트라이얼 플랜</span>
-                <span class="trialMainPrice"
-                  >0원 <span class="trialPrice">80,000원</span></span
-                >
-              </div>
-            </div>
-            <div>
-              <div class="carouselCard">
-                <img
-                  class="cardImg"
-                  src="../assets/images/starter.png"
-                  alt=""
-                />
-                <span class="firstSub">스타터 플랜</span>
-                <span class="secondSub">110,000원</span>
-              </div>
-            </div>
-            <div>
-              <div class="carouselCard">
-                <img class="cardImg" src="../assets/images/lite.png" alt="" />
-                <span class="firstSub">라이트 플랜</span>
-                <span class="secondSub">407,000원</span>
-              </div>
-            </div>
-            <div>
-              <div class="carouselCard">
-                <img class="cardImg" src="../assets/images/simple.png" alt="" />
-                <span class="firstSub">심플 플랜</span>
-                <span class="secondSub">737,000원</span>
+            <div v-for="(plan, index) in plans" v-bind:key="index">
+              <div class="carouselCard" v-on:click="testClick()">
+                <img class="cardImg" :src="plan.image" alt="" />
+                <span class="firstSub">{{ plan.title }}</span>
+
+                <span class="secondSub">{{ plan.price }}</span>
+                <span class="trialMainPrice">
+                  <span class="trialPrice">{{ plan.eventPrice }}</span>
+                </span>
               </div>
             </div>
           </VueSlickCarousel>
@@ -105,6 +70,7 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
+  name: "Plan",
   components: { VueSlickCarousel },
   data() {
     return {
@@ -115,9 +81,55 @@ export default {
         speed: 500,
         swipeToSlide: true,
         slidesToScroll: 1,
-        slidesToShow: 4.999
-      }
+        slidesToShow: 4.999,
+        msg: "플랜페이지"
+      },
+      plans: [
+        {
+          plan: "standard",
+          title: "스탠다드 플랜",
+          image:
+            "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1586858332300_1000.png",
+          price: "1,727,000원"
+        },
+        {
+          plan: "trial",
+          title: "[이벤트] 트라이얼 플랜",
+          image:
+            "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1589176213134_1000.png",
+          price: "0원",
+          eventPrice: "80,000원"
+        },
+        {
+          plan: "starter",
+          title: "스타터 플랜",
+          image:
+            "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1586858271345_1000.png",
+          price: "110,000원"
+        },
+        {
+          plan: "lite",
+          title: "라이트 플랜",
+          image:
+            "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1586858287067_1000.png",
+          price: "407,000원"
+        },
+        {
+          plan: "simple",
+          title: "심플 플랜",
+          image:
+            "https://contents.sixshop.com/thumbnails/uploadedFiles/107454/product/image_1586858318412_1000.png",
+          price: "737,000원"
+        }
+      ]
     };
+  },
+  methods: {
+    testClick() {
+      const title = this.plans[0].title;
+      this.$router.push({ name: "Product", params: { title: title } });
+      console.log(title);
+    }
   }
 };
 </script>
@@ -256,7 +268,7 @@ export default {
       font-size: 16px;
       color: #bdbdbd;
       display: block;
-      margin: 10px 0 50px 0;
+      margin: 10px 0 0 0;
     }
 
     .trialMainPrice {

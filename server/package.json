@@ -4,7 +4,8 @@
   "description": "Plan B project for ForMakers",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=production nodemon server.js",
+    "dev": "nodemon server.js"
   },
   "author": "ForMakers Development Team",
   "license": "ISC",

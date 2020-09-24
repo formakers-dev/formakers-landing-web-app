@@ -20,61 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4245bc07-972e-412d-938a-7652d899a85a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/standardData.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/commons/reset.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/buf_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/company.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/course.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/eve_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/eve_img2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/formakers_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/home_back1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/home_back2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/home_back3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/home_back4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/home_back5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/home_back6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/lite.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/major_game.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/our_vision.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/partner_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/pricing.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/service1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/service2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/simple.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/standard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/starter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/test_couse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/trial.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/wonder_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/zabob_logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Product.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Company.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/FindPassword.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/NotFoundPage.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Plan.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Policy.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Process.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/SignIn.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/SignUp.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/SignupPrivacy.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/example.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +90,8 @@
       <workItem from="1600736395149" duration="860000" />
       <workItem from="1600741126408" duration="3530000" />
       <workItem from="1600841331716" duration="265000" />
-      <workItem from="1600841613506" duration="3480000" />
+      <workItem from="1600841613506" duration="4188000" />
+      <workItem from="1600945838411" duration="178000" />
     </task>
     <servers />
   </component>
@@ -160,6 +108,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="521" y="336" key="#ESLint" timestamp="1600841688853">

@@ -1,11 +1,11 @@
 const express = require('express');
-const { getAllUsers } = require('../controllers/userController');
+const { searchUsers } = require('../controllers/userController');
 
 const router = express.Router();
 
-// ===== User Query =====
+// ===== User Search =====
 router
-  .route('/')
-  .get(getAllUsers);
+  .route('/search')
+  .post(searchUsers);
 
 module.exports = router;

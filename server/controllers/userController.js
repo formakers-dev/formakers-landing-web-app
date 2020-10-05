@@ -1,11 +1,11 @@
 const asyncHandler = require('../middleware/asyncHandler');
 const User = require('../models/userModel');
 
-// @desc       Get all users
-// @route      GET /api/users
+// @desc       Search users
+// @route      POST /api/users/search
 // @access     Public
-exports.getAllUsers = asyncHandler(async(req, res, next) => {
-  const users = await User.find();
+exports.searchUsers = asyncHandler(async(req, res, next) => {
+  const users = await User.find(req.body);
 
   res.status(200).json({
     count: users.length,

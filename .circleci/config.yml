@@ -4,7 +4,7 @@ aliases:
 
   - &update-npm
     name: npm 업데이트
-    command: sudo npm install -g npm@6.1.0
+    command: sudo npm install -g npm@latest
 
   - &restore-npm-cache
     keys:
@@ -40,11 +40,15 @@ jobs:
           name: npm 테스트
           command: npm test
 
-  build:
+  dev-build:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace: *attach_workspace
+      - attach_workspace:
+          at: ./client
+      - run:
+          name: ls cd
+          command: pwd; ls; cd client
       - run: *update-npm
       - restore_cache: *restore-npm-cache
       - run: *install-npm
@@ -78,43 +82,76 @@ jobs:
           name: Archive and Delivery to Slack
           command: bash .circleci/delivery-to-slack.sh DEV dev-build $CIRCLE_BRANCH
 
-  prd-deploy:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace: *attach_workspace
-      - run: *update-npm
-      - restore_cache: *restore-npm-cache
-      - run: *install-npm
-      - save_cache: *save-npm-cache
-      - run:
-          name: firebase.json prd용으로 대체
-          command: mv firebase-prd.json firebase.json
-      - run:
-          name: Prd Firebase Deploy
-          command:  ./node_modules/.bin/firebase deploy --project prd --only hosting:formakers --token "$FIREBASE_TOKEN"
-      - run:
-          name: Archive and Delivery to Slack
-          command: bash .circleci/delivery-to-slack.sh PRD _general $CIRCLE_BRANCH
+#  prd-build:
+#    <<: *defaults
+#    steps:
+#      - checkout
+#      - attach_workspace:
+#          at: ./client
+#      - run:
+#          name: ls cd
+#          command: pwd; ls; cd client
+#      - run: *update-npm
+#      - restore_cache: *restore-npm-cache
+#      - run: *install-npm
+#      - run:
+#          name: sass rebuild
+#          command: npm rebuild node-sass
+#      - save_cache: *save-npm-cache
+#      - run:
+#          name: Build in Production Mode
+#          command: npm run build
+#      - persist_to_workspace:
+#          root: .
+#          paths: dist
+#      - run:
+#          name: check dist directory
+#          command: pwd; ls; ls dist
+#
+#  prd-deploy:
+#    <<: *defaults
+#    steps:
+#      - checkout
+#      - attach_workspace: *attach_workspace
+#      - run: *update-npm
+#      - restore_cache: *restore-npm-cache
+#      - run: *install-npm
+#      - save_cache: *save-npm-cache
+#      - run:
+#          name: firebase.json prd용으로 대체
+#          command: mv firebase-prd.json firebase.json
+#      - run:
+#          name: Prd Firebase Deploy
+#          command:  ./node_modules/.bin/firebase deploy --project prd --only hosting:formakers --token "$FIREBASE_TOKEN"
+#      - run:
+#          name: Archive and Delivery to Slack
+#          command: bash .circleci/delivery-to-slack.sh PRD _general $CIRCLE_BRANCH
 
 workflows:
   version: 2
   build-deploy:
     jobs:
-      #      - test
-      - build
+      - dev-build:
+          filters:
+            branches:
+              ignore:
+                - release
       - dev-deploy:
           requires:
-            - build
+            - dev-build
           filters:
             branches:
-              only:
-                - master
-                - circleci
-      - prd-deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
+              ignore:
                 - release
+#      - prd-build:
+#          filters:
+#            branches:
+#              only:
+#                - release
+#      - prd-deploy:
+#          requires:
+#            - prd-build
+#          filters:
+#            branches:
+#              only:
+#                - release

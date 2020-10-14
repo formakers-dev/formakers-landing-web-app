@@ -24,8 +24,8 @@
       </div>
 
       <p class="control">
-        <b-button class="button is-dark" type="submit" @click="search" expanded>
-          찾 기
+        <b-button class="search-button" type="submit" @click.prevent="search">
+          <router-link :to="{ name: 'Result' }">찾 기</router-link>
         </b-button>
       </p>
     </section>
@@ -33,17 +33,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "SearchForm",
   data() {
     return {
       isExpanded: false,
-      selectedOptions: {
-        gender: [],
-        ageGroup: [],
-        playStyle: [],
-        payStyle: []
-      },
       fields: [
         {
           name: "성별",
@@ -54,8 +50,26 @@ export default {
         {
           name: "연령대",
           key: "ageGroup",
-          displayText: ["무관", "10대", "20대", "30대", "40대", "50대 이상"],
-          options: ["all", "10s", "20s", "30s", "40s", "50plus"]
+          displayText: [
+            "무관",
+            "10세 미만",
+            "10대",
+            "20대",
+            "30대",
+            "40대",
+            "50대",
+            "60대 이상"
+          ],
+          options: [
+            "all",
+            "under10",
+            "10s",
+            "20s",
+            "30s",
+            "40s",
+            "50s",
+            "over60"
+          ]
         },
         {
           name: "게임 플레이 방식",
@@ -116,11 +130,14 @@ export default {
       ]
     };
   },
-  methods: {
-    search() {
-      console.log(this.selectedOptions);
-    }
+  computed: {
+    ...mapState(["selectedOptions"])
   },
+  methods: {
+    async search() {
+      await this.$store.commit("SET_SELECTED_OPTIONS", this.selectedOptions);
+    }
+  }
 };
 </script>
 
@@ -130,8 +147,12 @@ export default {
   margin: 0 auto;
 }
 
-.button.is-dark {
+.search-button {
   width: 10rem;
-  margin: 0 auto;
+  margin: 1rem auto;
+}
+
+.search-button a {
+  color: black;
 }
 </style>

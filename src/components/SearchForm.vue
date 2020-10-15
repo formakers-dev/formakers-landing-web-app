@@ -34,7 +34,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { displayText, encodedText } from "@/utils/textFormatter";
+import { displayText } from "@/utils/textFormatter";
 
 export default {
   name: "SearchForm",
@@ -58,8 +58,9 @@ export default {
   methods: {
     async setText() {
       await this.fields.forEach(field => {
-        field.displayText = displayText[field.key];
-        field.encodedText = encodedText[field.key];
+        const fieldCategory = displayText[field.key];
+        field.encodedText = Object.keys(fieldCategory);
+        field.displayText = Object.values(fieldCategory);
       });
     },
     async search() {

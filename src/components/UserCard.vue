@@ -18,14 +18,24 @@
     </p>
     <p>인생게임 : {{ user.lifeApps.join(", ") || "-" }}</p>
     <p>월 과금규모 : {{ user.monthlyPayment || "-" }}만원</p>
-    <p>연락가능확률 : {{ user.activatedDate || "-" }}</p>
+    <p>최근 접속일 : {{ displayDate }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "UserCard",
-  props: ["user", "index"]
+  props: ["user", "index"],
+  computed: {
+    displayDate() {
+      if (this.user.activatedDate) {
+        const date = new Date(this.user.activatedDate);
+        return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+      } else {
+        return "-";
+      }
+    }
+  }
 };
 </script>
 

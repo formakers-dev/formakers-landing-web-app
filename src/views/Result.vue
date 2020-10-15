@@ -29,6 +29,7 @@ import axios from "axios";
 import { mapState } from "vuex";
 import ShowFilters from "@/components/ShowFilters";
 import UserCard from "@/components/UserCard";
+import { showDisplayText } from "@/utils/textFormatter";
 import config from "../../config";
 
 export default {
@@ -42,7 +43,7 @@ export default {
       loading: false,
       error: "",
       userCount: 0,
-      users: {}
+      users: []
     };
   },
   computed: {
@@ -59,7 +60,7 @@ export default {
         .post(`${serverURL}/users/search`, this.selectedOptions)
         .then(({ data }) => {
           this.userCount = data.count;
-          this.users = data.users;
+          this.users = data.users.map(user => showDisplayText(user));
         })
         .catch(() => {
           this.error =

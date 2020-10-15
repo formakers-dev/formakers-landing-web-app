@@ -64,3 +64,23 @@ export const displayText = {
     "0": "-"
   }
 };
+
+export const showDisplayText = user => {
+  const formattedUser = Object.assign({}, user);
+
+  formattedUser.gender = displayText.gender[user.gender];
+  formattedUser.job = displayText.job[user.job];
+
+  const playStyleFields = [
+    "favoritePlatforms",
+    "favoriteGenres",
+    "leastFavoriteGenres"
+  ];
+  playStyleFields.forEach(field => {
+    formattedUser[field] = user[field].map(
+      value => displayText.playStyle[value]
+    );
+  });
+
+  return formattedUser;
+};

@@ -58,7 +58,7 @@ jobs:
       - save_cache: *save-npm-cache
       - run:
           name: Build in Development Mode
-          command: npm run build
+          command: npm run build-dev
       - persist_to_workspace:
           root: .
           paths: dist

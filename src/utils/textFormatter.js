@@ -65,22 +65,66 @@ export const displayText = {
   }
 };
 
-export const showDisplayText = user => {
-  const formattedUser = Object.assign({}, user);
+// ms 기준인 시간을 -> 시간, 분 단위로 표시하기
+const convertTime = ms => {
+  const hourInMs = 1000 * 60 * 60;
+  const minuteInMs = 1000 * 60;
 
-  formattedUser.gender = displayText.gender[user.gender];
-  formattedUser.job = displayText.job[user.job];
+  const hours = Math.floor(ms / hourInMs);
+  const minutes = Math.round(ms % hourInMs / minuteInMs);
+
+  return hours > 0 ? `${hours}시간 ${minutes}분` : `${minutes}분`;
+}
+
+const convertToDisplayText = user => {
+  // value값이 있는 경우엔 displayText로 변환하고 && value값이 없는 경우엔 "-"로 채워주기
+  ["gender", "job"].forEach(field => user[field] = user[field] ? displayText[field][user[field]] : "-");
+
+  // value값이 있는 경우엔 플레이시간을 시간,분 단위로 표시하고 && value값이 없는 경우엔 "-"로 채워주기
+  user.totalPlayTime = user.totalPlayTime ? convertTime(user.totalPlayTime[0].totalUsedTime) : "-";
+
+  // value값이 없는 경우에 "-"로 채워주기
+  ["birthday", "monthlyPayment"].forEach(field => user[field] = user[field] || "-");
+
+  for (let [key, value] of Object.entries(user.device)) {
+    user.device[key] = value || "-";
+  }
 
   const playStyleFields = [
     "favoritePlatforms",
     "favoriteGenres",
     "leastFavoriteGenres"
   ];
-  playStyleFields.forEach(field => {
-    formattedUser[field] = user[field].map(
-      value => displayText.playStyle[value]
-    );
+  playStyleFields.forEach(playStyle => {
+    if (user[playStyle] && user[playStyle].length) {
+      user[playStyle] = user[playStyle].map(
+        value => displayText.playStyle[value]
+      );
+      user[playStyle] = user[playStyle].join(", ");
+    } else {
+      user[playStyle] = "-";
+    }
   });
+
+  user.lifeApps = user.lifeApps && user.lifeApps.length ? user.lifeApps.join(", ") : "-";
+
+  return user;
+}
+
+const displayActivatedDate = user => {
+  if (user.activatedDate) {
+    const date = new Date(user.activatedDate);
+    return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+  } else {
+    return "-";
+  }
+}
+
+export const showDisplayText = user => {
+  let formattedUser = Object.assign({}, user);
+
+  formattedUser = convertToDisplayText(formattedUser);
+  formattedUser.activatedDate = displayActivatedDate(formattedUser);
 
   return formattedUser;
 };

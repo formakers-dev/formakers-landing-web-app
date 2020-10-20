@@ -1,6 +1,5 @@
 <template>
   <div class="user-card">
-    <b-checkbox />
     <h3>{{ index + 1 }}</h3>
     <p>성별 : {{ user.gender }} / 출생연도 : {{ user.birthday }}년 / 직업 : {{ user.job }}</p>
     <p>선호 플랫폼 : {{ user.favoritePlatforms }}</p>

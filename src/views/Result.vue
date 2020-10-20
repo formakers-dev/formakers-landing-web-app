@@ -16,10 +16,29 @@
 
     <div v-if="!loading">
       <ShowFilters />
-      <h2>선택하신 조건과 꼭 맞는 {{ userCount }}명의 유저가 검색되었습니다! 🎉 </h2>
-      <div v-for="(user, index) in users" :key="user.id">
-        <UserCard :user="user" :index="index" />
-      </div>
+      <h2>
+        선택하신 조건과 꼭 맞는 {{ userCount }}명의 유저가 검색되었습니다! 🎉
+      </h2>
+      <h3>매칭을 원하시는 유저를 선택해보세요!</h3>
+
+      <button
+        class="button"
+        v-if="selectedUsers.length"
+        @click.prevent="openModal()"
+      >
+        선택한 유저 {{ selectedUsers.length }}명에게 연락하기
+      </button>
+
+      <section>
+        <b-checkbox
+          v-for="(user, index) in displayUsers"
+          :key="user.id"
+          v-model="selectedUsers"
+          :native-value="users[index]"
+        >
+          <UserCard :user="user" :index="index" />
+        </b-checkbox>
+      </section>
     </div>
   </div>
 </template>
@@ -29,6 +48,7 @@ import axios from "axios";
 import { mapState } from "vuex";
 import ShowFilters from "@/components/ShowFilters";
 import UserCard from "@/components/UserCard";
+import SendRequestModal from "@/components/SendRequestModal";
 import { showDisplayText } from "@/utils/textFormatter";
 import config from "../../config";
 
@@ -43,7 +63,9 @@ export default {
       loading: false,
       error: "",
       userCount: 0,
-      users: []
+      users: [],
+      displayUsers: [],
+      selectedUsers: []
     };
   },
   computed: {
@@ -60,7 +82,8 @@ export default {
         .post(`${serverURL}/users/search`, this.selectedOptions)
         .then(({ data }) => {
           this.userCount = data.count;
-          this.users = data.users.map(user => showDisplayText(user));
+          this.users = data.users;
+          this.displayUsers = data.users.map(user => showDisplayText(user));
         })
         .catch(() => {
           this.error =
@@ -69,6 +92,17 @@ export default {
         .finally(() => {
           this.loading = false;
         });
+    },
+    openModal() {
+      this.$buefy.modal.open({
+        parent: this,
+        props: {
+          selectedUsers: this.selectedUsers
+        },
+        component: SendRequestModal,
+        hasModalCard: true,
+        trapFocus: false
+      });
     }
   }
 };

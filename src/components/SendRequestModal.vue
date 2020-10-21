@@ -12,7 +12,12 @@
       </b-field>
 
       <b-field label="이메일">
-        <b-input v-model="requestForm.customerEmail" rounded />
+        <b-input
+          type="email"
+          validation-message="유효한 이메일을 입력해주세요."
+          v-model="requestForm.customerEmail"
+          rounded
+        />
       </b-field>
 
       <b-field label="원하는 관심사를 선택해주세요">

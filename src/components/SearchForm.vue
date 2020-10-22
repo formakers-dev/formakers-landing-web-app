@@ -25,7 +25,7 @@
 
       <p class="control">
         <b-button class="search-button" type="submit" @click.prevent="search">
-          <router-link :to="{ name: 'Result' }">찾 기</router-link>
+          찾 기
         </b-button>
       </p>
     </section>
@@ -65,6 +65,7 @@ export default {
     },
     async search() {
       await this.$store.commit("SET_SELECTED_OPTIONS", this.selectedOptions);
+      await this.$router.push({ name: "Result" });
     }
   }
 };

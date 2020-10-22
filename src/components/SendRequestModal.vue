@@ -40,6 +40,7 @@
 
 <script>
 import axios from "axios";
+import { mapState } from "vuex";
 import config from "../../config";
 import SendRequestSuccess from "@/components/SendRequestSuccess";
 import SendRequestError from "@/components/SendRequestError";
@@ -61,15 +62,22 @@ export default {
         customerName: "",
         customerEmail: "",
         interests: [],
-        selectedUsers: this.selectedUsers
+        selectedUsers: this.selectedUsers,
+        selectedOptions: []
       },
       customInterest: ""
     };
   },
+  computed: {
+    ...mapState(["selectedOptions"])
+  },
   methods: {
     createRequest() {
       const serverURL = config.serverBaseUrl;
-      this.requestForm.interests.push(this.customInterest);
+      if (this.customInterest) {
+        this.requestForm.interests.push(this.customInterest);
+      }
+      this.requestForm.selectedOptions.push(this.selectedOptions);
       axios
         .post(`${serverURL}/requests`, this.requestForm)
         .then(() => {

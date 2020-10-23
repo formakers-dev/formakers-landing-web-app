@@ -1,5 +1,5 @@
 <template>
-  <div class="search-wrapper">
+  <section>
     <b-button
       rounded
       class="initial-search"
@@ -10,26 +10,23 @@
     </b-button>
 
     <section class="box expanded-search" v-show="isExpanded">
-      <div v-for="(field, index) in fields" :key="index">
-        <span>{{ field.displayKey }} : </span>
+      <div v-for="(field, index) in fields" :key="index" class="search-filters">
+        <span class="filter-name">{{ field.displayKey }} : </span>
         <b-checkbox
-          type="is-info"
           v-for="(text, index) in field.displayText"
           v-model="selectedOptions[field.key]"
           :key="index"
           :native-value="field.encodedText[index]"
         >
-          <span>{{ text }}</span>
+          <span class="filter-text">{{ text }}</span>
         </b-checkbox>
       </div>
 
-      <p class="control">
-        <b-button class="search-button" type="submit" @click.prevent="search">
-          찾 기
-        </b-button>
-      </p>
+      <b-button class="search-button" type="submit" @click.prevent="search">
+        찾 기
+      </b-button>
     </section>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -71,18 +68,53 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.initial-search {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.3rem;
+  background-color: #ebebeb;
+  padding: 1.2rem 3rem;
+}
+
 .expanded-search {
-  width: 60vw;
+  width: 50vw;
+  max-width: 1000px;
   margin: 0 auto;
-}
+  background-color: #ebebeb;
 
-.search-button {
-  width: 10rem;
-  margin: 1rem auto;
-}
+  .search-filters {
+    width: 90%;
+    margin: 0.5rem auto;
+    text-align: start;
+    z-index: 10;
 
-.search-button a {
-  color: black;
+    .filter-name {
+      font-family: "Do Hyeon", sans-serif;
+      font-size: 1.3rem;
+    }
+
+    .checkbox {
+      z-index: 10;
+    }
+  }
+
+  .search-button {
+    background-color: #00bfba;
+    color: #ebebeb;
+    width: 20%;
+    height: 2.5rem;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 1.5rem;
+    transition: ease 0.3s;
+    z-index: 10;
+
+    &:hover {
+      background-color: #198380;
+    }
+  }
 }
 </style>

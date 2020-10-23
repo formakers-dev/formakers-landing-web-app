@@ -1,22 +1,33 @@
 <template>
-  <section class="title">
-    <h1 class="title is-1">Persona</h1>
-    <h3 class="subtitle is-4">당신이 원하는 게이머를 빠르고 쉽게 만나보세요!</h3>
+  <section class="title-section">
+    <h1>{ Persona }</h1>
+    <p>당신이 원하는 게이머를 빠르고 쉽게 만나보세요!</p>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'Title',
+  name: "Title"
 };
 </script>
 
-<style scoped>
-  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+<style lang="scss" scoped>
+.title-section {
+  padding-top: 15vh;
+  margin: 0 auto 2rem;
 
-  .title.is-1 {
-    font-family: 'Pacifico', cursive;
+  h1 {
+    font-family: "Pacifico", cursive;
     font-size: 5rem;
-    margin: 7rem 0 3rem;
+    font-weight: 800;
+    text-shadow: 3px 3px #d6d2c4;
+    margin-bottom: 1rem;
   }
+
+  p {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+}
 </style>

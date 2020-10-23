@@ -1,6 +1,6 @@
 <template>
   <div class="filter-box">
-    <h2>[ 선택한 필터들 ]</h2>
+    <h1>[ 선택한 필터들 ]</h1>
     <p>성별 : {{ displayFilters.gender.join(", ") || "-" }}</p>
     <p>연령대 : {{ displayFilters.ageGroup.join(", ") || "-" }}</p>
     <p>게임 플레이 방식 : {{ displayFilters.playStyle.join(", ") || "-" }}</p>
@@ -37,11 +37,20 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .filter-box {
-  width: 60vw;
-  margin: 2rem auto;
-  padding: 2rem;
-  border: 2px solid grey;
+  width: 100%;
+  margin: 0 auto 5rem;
+
+  h1 {
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 2rem;
+    margin: 0 3px;
+  }
+
+  p {
+    margin: 0.5rem 2rem;
+    text-align: start;
+  }
 }
 </style>

@@ -2,15 +2,26 @@
   <div class="home-page">
     <Title />
     <SearchForm />
+    <svg
+      class="wave-divider"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 280"
+    >
+      <path
+        fill="#ebebeb"
+        fill-opacity="1"
+        d="M0,128L30,117.3C60,107,120,85,180,106.7C240,128,300,192,360,202.7C420,213,480,171,540,170.7C600,171,660,213,720,240C780,267,840,277,900,245.3C960,213,1020,139,1080,101.3C1140,64,1200,64,1260,80C1320,96,1380,128,1410,144L1440,160L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"
+      ></path>
+    </svg>
   </div>
 </template>
 
 <script>
-import Title from '@/components/Title';
-import SearchForm from '@/components/SearchForm';
+import Title from "@/components/Title";
+import SearchForm from "@/components/SearchForm";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     Title,
     SearchForm
@@ -18,6 +29,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.home-page {
+  min-height: 100vh;
+  background-color: #00bfba;
+}
 
+.wave-divider {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+}
 </style>

@@ -184,6 +184,11 @@ export default {
     font-family: "Do Hyeon", sans-serif;
     font-size: 1.5rem;
     cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: ease-in-out 0.1s;
+    }
   }
 }
 

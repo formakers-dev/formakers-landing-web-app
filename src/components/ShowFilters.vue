@@ -1,10 +1,10 @@
 <template>
   <div class="filter-box">
     <h1>[ 선택한 필터들 ]</h1>
-    <p>성별 : {{ displayFilters.gender.join(", ") || "-" }}</p>
-    <p>연령대 : {{ displayFilters.ageGroup.join(", ") || "-" }}</p>
-    <p>게임 플레이 방식 : {{ displayFilters.playStyle.join(", ") || "-" }}</p>
-    <p>과금 여부 : {{ displayFilters.payStyle.join(", ") || "-" }}</p>
+    <p><span>성별:</span> {{ displayFilters.gender.join(", ") || "-" }}</p>
+    <p><span>연령대:</span> {{ displayFilters.ageGroup.join(", ") || "-" }}</p>
+    <p><span>게임 플레이 방식:</span> {{ displayFilters.playStyle.join(", ") || "-" }}</p>
+    <p><span>과금 여부:</span> {{ displayFilters.payStyle.join(", ") || "-" }}</p>
   </div>
 </template>
 
@@ -51,6 +51,12 @@ export default {
   p {
     margin: 0.5rem 2rem;
     text-align: start;
+
+    span {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-right: 5px;
+    }
   }
 }
 </style>

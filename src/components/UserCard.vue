@@ -3,6 +3,7 @@
     <div class="card-content">
       <span class="index">{{ index + 1 }}</span>
       <span class="user-profile">{{ user.gender }} / {{ user.birthday }}년생 / {{ user.job }}</span>
+      <hr>
       <p><img src="mobile.svg" /> <span class="field-title">제조사:</span> {{ user.device.manufacturer }} / <span class="field-title">모델명:</span> {{ user.device.model }} / <span class="field-title">OS버전:</span> {{ user.device.osVersion }}</p>
       <p><span class="field-title">선호 플랫폼:</span> {{ user.favoritePlatforms }}</p>
       <p><span class="field-title">선호 장르:</span> {{ user.favoriteGenres }} / <span class="field-title">비선호 장르:</span> {{ user.leastFavoriteGenres }}</p>
@@ -28,6 +29,20 @@ export default {
   border-radius: 10px;
   text-align: start;
 
+  p {
+    margin: 0.7rem auto;
+  }
+
+  img {
+    margin-bottom: -6px;
+  }
+
+  hr {
+    height: 2px;
+    background-color: #cdcdcd;
+    margin: 0.5rem auto;
+  }
+
   .index {
     font-size: 1.7rem;
     font-weight: 900;
@@ -37,14 +52,6 @@ export default {
   .user-profile {
     font-family: "Do Hyeon", sans-serif;
     font-size: 1.4rem;
-  }
-
-  p {
-    margin: 0.7rem auto;
-  }
-
-  img {
-    margin-bottom: -6px;
   }
 
   .field-title {

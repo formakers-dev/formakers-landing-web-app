@@ -1,32 +1,8 @@
 <template>
   <div class="result-page">
-    <div v-if="loading" class="loading">
-      <h1>유저 정보를 불러오고 있습니다... 🧐</h1>
-      <p>잠시만 기다려주세요 🙏</p>
-      <div id="skeleton">
-        <b-skeleton
-          width="25%"
-          height="20px"
-          position="is-centered"
-        ></b-skeleton>
-        <b-skeleton
-          width="50%"
-          height="20px"
-          position="is-centered"
-        ></b-skeleton>
-        <b-skeleton
-          width="75%"
-          height="20px"
-          position="is-centered"
-        ></b-skeleton>
-        <b-skeleton height="20px" position="is-centered"></b-skeleton>
-      </div>
-    </div>
+    <SearchLoading v-if="loading" />
 
-    <div v-if="error" class="error">
-      <h1>{{ error }}</h1>
-      <router-link to="/">뒤로 가기</router-link>
-    </div>
+    <SearchError v-if="error" />
 
     <div v-else class="result">
       <div class="result-body">
@@ -70,6 +46,8 @@
 <script>
 import axios from "axios";
 import { mapState } from "vuex";
+import SearchLoading from "@/components/SearchLoading";
+import SearchError from "@/components/SearchError";
 import ShowFilters from "@/components/ShowFilters";
 import UserCard from "@/components/UserCard";
 import SendRequestModal from "@/components/SendRequestModal";
@@ -79,13 +57,15 @@ import config from "../../config";
 export default {
   name: "Result",
   components: {
+    SearchLoading,
+    SearchError,
     ShowFilters,
     UserCard
   },
   data() {
     return {
       loading: false,
-      error: "",
+      error: false,
       userCount: 0,
       users: [],
       displayUsers: [],
@@ -110,8 +90,7 @@ export default {
           this.displayUsers = data.users.map(user => showDisplayText(user));
         })
         .catch(() => {
-          this.error =
-            "유저를 불러오는데 에러가 발생했습니다. 😢 다시 시도해주시기 바랍니다.";
+          this.error = true;
         })
         .finally(() => {
           this.loading = false;
@@ -143,34 +122,6 @@ export default {
 <style lang="scss" scoped>
 .result-page {
   margin: 0 auto;
-}
-
-.loading,
-.error {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-
-  h1 {
-    font-family: "Do Hyeon", sans-serif;
-    font-size: 2.3rem;
-  }
-
-  p,
-  a {
-    font-size: 1.5rem;
-  }
-}
-
-#skeleton {
-  width: 50vw;
-  margin: 3rem auto 0;
-
-  .b-skeleton {
-    margin: 5px auto;
-  }
 }
 
 .result {

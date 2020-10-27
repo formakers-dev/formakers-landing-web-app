@@ -13,7 +13,7 @@ export default {
 
 <style lang="scss" scoped>
 .title-section {
-  padding-top: 15vh;
+  padding-top: 10vh;
   margin: 0 auto 2rem;
 
   h1 {
@@ -21,7 +21,6 @@ export default {
     font-size: 5rem;
     font-weight: 800;
     text-shadow: 3px 3px #d6d2c4;
-    margin-bottom: 1rem;
   }
 
   p {

@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .filter-box {
   width: 100%;
-  margin: 0 auto 5rem;
+  margin: 0 auto 2rem;
 
   h1 {
     font-family: "Do Hyeon", sans-serif;

@@ -80,11 +80,12 @@ export default {
   width: 50vw;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0.3rem 1rem;
   background-color: #ebebeb;
 
   .search-filters {
     width: 90%;
-    margin: 0.5rem auto;
+    margin: 1.5rem auto;
     text-align: start;
     z-index: 10;
 
@@ -103,7 +104,7 @@ export default {
     color: #ebebeb;
     width: 20%;
     height: 2.5rem;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
     padding: 0;
     border: none;
     border-radius: 10px;

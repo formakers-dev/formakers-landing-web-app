@@ -2,33 +2,12 @@
   <section class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">
-        {{ selectedUsers.length }}명의 타겟 게이머에게 연락하기
+        선택한 유저 {{ selectedUsers.length }}명에게 연락하기
       </p>
       <button type="button" class="delete" @click="$emit('close')" />
     </header>
 
     <div class="modal-card-body">
-      <p>
-        연락받으실 이메일 주소와 간단한 정보를 적어주시면 포메이커스에서 곧
-        연락드리겠습니다.
-      </p>
-
-      <p class="label-section"><span>*</span>이름</p>
-      <b-field>
-        <b-input v-model="requestForm.customerName" rounded />
-      </b-field>
-
-      <p class="label-section"><span>*</span>이메일</p>
-      <b-field>
-        <b-input
-          type="email"
-          icon="email"
-          validation-message="유효한 이메일을 입력해주세요."
-          v-model="requestForm.customerEmail"
-          rounded
-        />
-      </b-field>
-
       <p class="label-section">
         <span>*</span>선택하신 게이머 분들과 무엇을 진행하고 싶으신가요? (복수
         선택 가능)
@@ -47,6 +26,27 @@
         v-model="customInterest"
         placeholder="그 외 관심사를 적어주세요"
       />
+
+      <p class="description">
+        아래의 입력란에 <b>신청자 이름</b>과 <b>연락받을 이메일</b>을
+        적어주시면, 포메이커스에서 곧 연락드리겠습니다.
+      </p>
+
+      <p class="label-section"><span>*</span>신청자 이름</p>
+      <b-field>
+        <b-input v-model="requestForm.customerName" rounded />
+      </b-field>
+
+      <p class="label-section"><span>*</span>연락받을 이메일</p>
+      <b-field>
+        <b-input
+          type="email"
+          icon="email"
+          validation-message="유효한 이메일을 입력해주세요."
+          v-model="requestForm.customerEmail"
+          rounded
+        />
+      </b-field>
     </div>
 
     <footer class="modal-card-foot">
@@ -70,7 +70,6 @@ import axios from "axios";
 import { mapState } from "vuex";
 import config from "../../config";
 import SendRequestSuccess from "@/components/SendRequestSuccess";
-import SendRequestError from "@/components/SendRequestError";
 
 export default {
   name: "SendRequestModal",
@@ -117,11 +116,10 @@ export default {
           });
         })
         .catch(() => {
-          this.$buefy.modal.open({
-            parent: this,
-            component: SendRequestError,
-            hasModalCard: true,
-            trapFocus: false
+          this.$buefy.toast.open({
+            message: "에러가 발생하였습니다. 다시 시도해주세요.",
+            position: "is-bottom",
+            type: "is-danger"
           });
         });
     }
@@ -146,13 +144,13 @@ export default {
 }
 
 .modal-card-body {
-  p:first-child {
+  .description {
     font-family: "Noto Sans KR", sans-serif;
-    margin-bottom: 2rem;
+    margin: 2rem auto;
   }
 
   .label-section {
-    margin: 1.5rem auto 0.7rem;
+    margin: 0 auto 0.7rem;
     font-family: "Noto Sans KR", sans-serif;
     font-weight: bold;
 

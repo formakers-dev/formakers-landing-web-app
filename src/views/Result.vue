@@ -8,10 +8,12 @@
       <div class="result-body">
         <div class="result-title">
           <h1>
-            선택하신 조건과 꼭 맞는 {{ userCount }}명의 유저가 검색되었습니다! 🎉
+            선택하신 조건과 꼭 맞는 {{ userCount }}명의 게이머가 검색되었습니다!
+            🎉
           </h1>
           <p>
-            원하시는 유저를 아래에서 선택하시면 연락을 취하거나, 게임 테스트를 문의하실 수 있습니다.
+            원하시는 게이머를 아래에서 선택하시면 연락을 취하거나, 게임 테스트를
+            문의하실 수 있습니다.
           </p>
         </div>
 
@@ -29,15 +31,22 @@
 
       <div class="fixed-sidebar">
         <ShowFilters />
-        <button class="change-filter-button" @click.prevent="$router.push('/')">필터 변경하기</button>
-        <button
-          class="request-button"
-          :class="{ active: selectedUsers.length }"
-          @click.prevent="openModal()"
-        >
-          선택한 유저<br />
-          {{ selectedUsers.length }}명에게 연락하기
-        </button>
+        <div>
+          <button
+            class="change-filter-button"
+            @click.prevent="$router.push('/')"
+          >
+            검색 조건 다시 설정하기
+          </button>
+          <button
+            class="request-button"
+            :class="{ active: selectedUsers.length }"
+            @click.prevent="openModal()"
+          >
+            선택한 게이머<br />
+            {{ selectedUsers.length }}명에게 연락하기
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -109,7 +118,7 @@ export default {
         });
       } else {
         this.$buefy.snackbar.open({
-          message: "유저를 먼저 선택해주세요!",
+          message: "게이머를 먼저 선택해주세요!",
           position: "is-bottom-right",
           type: "is-warning"
         });
@@ -149,7 +158,7 @@ export default {
     border: none;
     border-radius: 10px;
     font-family: "Do Hyeon", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
   }
 

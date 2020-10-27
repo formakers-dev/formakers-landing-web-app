@@ -1,6 +1,6 @@
 <template>
   <div class="error">
-    <h1>유저를 불러오는데 에러가 발생했습니다. 😢</h1>
+    <h1>게이머를 불러오는데 에러가 발생했습니다. 😢</h1>
     <h1>다시 시도해주시기 바랍니다.</h1>
     <button @click.prevent="$router.push('/')">다시 시도하기</button>
   </div>

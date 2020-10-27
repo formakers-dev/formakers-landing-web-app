@@ -1,6 +1,6 @@
 <template>
   <div class="filter-box">
-    <h1>[ 선택한 필터들 ]</h1>
+    <h1>[ 선택한 검색 조건들 ]</h1>
     <p><span>성별:</span> {{ displayFilters.gender.join(", ") || "-" }}</p>
     <p><span>연령대:</span> {{ displayFilters.ageGroup.join(", ") || "-" }}</p>
     <p><span>게임 플레이 방식:</span> {{ displayFilters.playStyle.join(", ") || "-" }}</p>

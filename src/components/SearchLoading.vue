@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-    <h1>유저 정보를 불러오고 있습니다... 🧐</h1>
+    <h1>게이머 정보를 불러오고 있습니다... 🧐</h1>
     <p>잠시만 기다려주세요 🙏</p>
     <div id="skeleton">
       <b-skeleton width="25%" height="20px" position="is-centered"></b-skeleton>

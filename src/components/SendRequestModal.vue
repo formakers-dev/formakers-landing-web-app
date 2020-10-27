@@ -2,7 +2,7 @@
   <section class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">
-        선택한 유저 {{ selectedUsers.length }}명에게 연락하기
+        선택한 게이머 {{ selectedUsers.length }}명에게 연락하기
       </p>
       <button type="button" class="delete" @click="$emit('close')" />
     </header>
@@ -82,7 +82,7 @@ export default {
         { key: "onlineMeeting", displayKey: "온라인 미팅" },
         { key: "recruitment", displayKey: "채용" },
         { key: "marketing", displayKey: "마케팅" },
-        { key: "buyUserData", displayKey: "유저 추가정보 구매" }
+        { key: "buyUserData", displayKey: "게이머 추가정보 구매" }
       ],
       requestForm: {
         customerName: "",

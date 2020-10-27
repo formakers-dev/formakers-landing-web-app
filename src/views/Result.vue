@@ -29,20 +29,14 @@
     </div>
 
     <div v-else class="result">
-      <div class="fixed-sidebar">
-        <ShowFilters />
-        <button v-if="selectedUsers.length" @click.prevent="openModal()">
-          선택한 유저<br />
-          {{ selectedUsers.length }}명에게 연락하기
-        </button>
-      </div>
-
       <div class="result-body">
         <div class="result-title">
           <h1>
             선택하신 조건과 꼭 맞는 {{ userCount }}명의 유저가 검색되었습니다! 🎉
           </h1>
-          <p>매칭을 원하시는 유저를 선택해보세요!</p>
+          <p>
+            원하시는 유저를 아래에서 선택하시면 연락을 취하거나, 게임 테스트를 문의하실 수 있습니다.
+          </p>
         </div>
 
         <div>
@@ -55,6 +49,19 @@
             <UserCard :user="user" :index="index" />
           </b-checkbox>
         </div>
+      </div>
+
+      <div class="fixed-sidebar">
+        <ShowFilters />
+        <button class="change-filter-button" @click.prevent="$router.push('/')">필터 변경하기</button>
+        <button
+          class="request-button"
+          :class="{ active: selectedUsers.length }"
+          @click.prevent="openModal()"
+        >
+          선택한 유저<br />
+          {{ selectedUsers.length }}명에게 연락하기
+        </button>
       </div>
     </div>
   </div>
@@ -111,15 +118,23 @@ export default {
         });
     },
     openModal() {
-      this.$buefy.modal.open({
-        parent: this,
-        props: {
-          selectedUsers: this.selectedUsers
-        },
-        component: SendRequestModal,
-        hasModalCard: true,
-        trapFocus: false
-      });
+      if (this.selectedUsers.length) {
+        this.$buefy.modal.open({
+          parent: this,
+          props: {
+            selectedUsers: this.selectedUsers
+          },
+          component: SendRequestModal,
+          hasModalCard: true,
+          trapFocus: false
+        });
+      } else {
+        this.$buefy.snackbar.open({
+          message: "유저를 먼저 선택해주세요!",
+          position: "is-bottom-right",
+          type: "is-warning"
+        });
+      }
     }
   }
 };
@@ -175,8 +190,22 @@ export default {
   justify-content: center;
   text-align: center;
 
-  button {
-    background-color: #f8ab1c;
+  .change-filter-button {
+    background-color: #198380;
+    width: 70%;
+    margin: 0 auto 3rem;
+    padding: 0.2rem 0;
+    border: none;
+    border-radius: 10px;
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .request-button {
+    background-color: #ebebeb;
+    color: #808080;
+    width: 70%;
     margin: 0 auto;
     padding: 1.5rem;
     border: none;
@@ -185,9 +214,14 @@ export default {
     font-size: 1.5rem;
     cursor: pointer;
 
-    &:hover {
-      transform: scale(1.05);
-      transition: ease-in-out 0.1s;
+    &.active {
+      background-color: #f8ab1c;
+      color: initial;
+
+      &:hover {
+        transform: scale(1.05);
+        transition: ease-in-out 0.1s;
+      }
     }
   }
 }

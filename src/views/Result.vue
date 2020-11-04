@@ -98,7 +98,8 @@ export default {
           this.users = data.users;
           this.displayUsers = data.users.map(user => showDisplayText(user));
         })
-        .catch(() => {
+        .catch(err => {
+          console.log(err);
           this.error = true;
         })
         .finally(() => {

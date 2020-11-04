@@ -81,7 +81,7 @@ const convertToDisplayText = user => {
   ["gender", "job"].forEach(field => user[field] = user[field] ? displayText[field][user[field]] : "-");
 
   // value값이 있는 경우엔 플레이시간을 시간,분 단위로 표시하고 && value값이 없는 경우엔 "-"로 채워주기
-  user.totalPlayTime = user.totalPlayTime ? convertTime(user.totalPlayTime[0].totalUsedTime) : "-";
+  user.totalPlayTime = user.totalPlayTime.length ? convertTime(user.totalPlayTime[0].totalUsedTime) : "-";
 
   // value값이 없는 경우에 "-"로 채워주기
   ["birthday", "monthlyPayment"].forEach(field => user[field] = user[field] || "-");

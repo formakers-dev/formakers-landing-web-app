@@ -86,8 +86,10 @@ const convertToDisplayText = user => {
   // value값이 없는 경우에 "-"로 채워주기
   ["birthday", "monthlyPayment"].forEach(field => user[field] = user[field] || "-");
 
-  for (let [key, value] of Object.entries(user.device)) {
-    user.device[key] = value || "-";
+  if (user.device && user.device.length) {
+    for (let [key, value] of Object.entries(user.device)) {
+      user.device[key] = value || "-";
+    }
   }
 
   const playStyleFields = [

@@ -2,15 +2,43 @@
   <div class="card user-card">
     <div class="card-content">
       <span class="index">{{ index + 1 }}</span>
-      <span class="user-profile">{{ user.gender }} / {{ user.birthday }}년생 / {{ user.job }}</span>
-      <hr>
-      <p><img src="mobile.svg" /> <span class="field-title">제조사:</span> {{ user.device.manufacturer }} / <span class="field-title">모델명:</span> {{ user.device.model }} / <span class="field-title">OS버전:</span> {{ user.device.osVersion }}</p>
-      <p><span class="field-title">선호 플랫폼:</span> {{ user.favoritePlatforms }}</p>
-      <p><span class="field-title">선호 장르:</span> {{ user.favoriteGenres }} / <span class="field-title">비선호 장르:</span> {{ user.leastFavoriteGenres }}</p>
+      <span class="user-profile"
+        >{{ user.gender }} / {{ user.birthday }}년생 / {{ user.job }}</span
+      >
+      <hr />
+      <p>
+        <img src="mobile.svg" /> <span class="field-title">제조사:</span>
+        {{
+          user.device && user.device.manufacturer
+            ? user.device.manufacturer
+            : "-"
+        }}
+        / <span class="field-title">모델명:</span>
+        {{ user.device && user.device.model ? user.device.model : "-" }} /
+        <span class="field-title">OS버전:</span>
+        {{ user.device && user.device.osVersion ? user.device.osVersion : "-" }}
+      </p>
+      <p>
+        <span class="field-title">선호 플랫폼:</span>
+        {{ user.favoritePlatforms }}
+      </p>
+      <p>
+        <span class="field-title">선호 장르:</span> {{ user.favoriteGenres }} /
+        <span class="field-title">비선호 장르:</span>
+        {{ user.leastFavoriteGenres }}
+      </p>
       <p><span class="field-title">인생게임:</span> {{ user.lifeApps }}</p>
-      <p><span class="field-title">월 과금규모:</span> {{ user.monthlyPayment }}만원</p>
-      <p><span class="field-title">총 게임플레이시간:</span> {{ user.totalPlayTime }}</p>
-      <p><span class="field-title">최근 접속일:</span> {{ user.activatedDate }}</p>
+      <p>
+        <span class="field-title">월 과금규모:</span>
+        {{ user.monthlyPayment }}만원
+      </p>
+      <p>
+        <span class="field-title">총 게임플레이시간:</span>
+        {{ user.totalPlayTime }}
+      </p>
+      <p>
+        <span class="field-title">최근 접속일:</span> {{ user.activatedDate }}
+      </p>
     </div>
   </div>
 </template>

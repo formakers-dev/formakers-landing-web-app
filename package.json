@@ -1,6 +1,6 @@
 {
   "name": "dragon-landing",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --port ${VUE_APP_PORT}",

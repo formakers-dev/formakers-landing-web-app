@@ -7,7 +7,7 @@
       >
       <hr />
       <p>
-        <img src="mobile.svg" /> <span class="field-title">제조사:</span>
+        <img src="/mobile.svg" /><span class="field-title">제조사:</span>
         {{
           user.device && user.device.manufacturer
             ? user.device.manufacturer

@@ -1,9 +1,9 @@
 <template>
   <section class="login-page">
-    <img src="/logo.png" />
-    <div class="login-form">
+    <div class="box" style="padding: 3rem; width: 35%; min-width: 300px">
+      <img src="/logo.png" style="display: block; margin: 0 auto 2rem auto" />
       <b-field label="이메일">
-        <b-input type="email" v-model="email" required rounded />
+        <b-input type="email" v-model="email" required />
       </b-field>
       <b-field label="비밀번호">
         <b-input
@@ -12,12 +12,11 @@
           @keyup.native.enter="login"
           required
           password-reveal
-          rounded
         />
       </b-field>
 
       <div class="login-button-container">
-        <b-button @click.prevent="login" expanded>
+        <b-button class="is-primary" @click.prevent="login" expanded>
           로그인
         </b-button>
       </div>
@@ -83,6 +82,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2rem;
 
   img {
     width: 10vw;
@@ -91,24 +91,7 @@ export default {
   }
 }
 
-.login-form {
-  width: 30vw;
-  min-width: 400px;
-  background-color: #00bfba;
-  margin: 0 auto;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
-}
-
 .login-button-container {
   margin-top: 2rem;
-
-  button {
-    background-color: #f8ab1c;
-    border: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
 }
 </style>

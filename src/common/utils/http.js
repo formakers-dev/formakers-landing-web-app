@@ -26,6 +26,8 @@ instance.interceptors.response.use(response => {
     // 2. Axios Request Default Header의 x-access-tokenn에 셋팅되어있는 accessToken을 지운다
     delete instance.defaults.headers.common["x-access-token"];
   }
+
+  return response;
 });
 
 export default instance;

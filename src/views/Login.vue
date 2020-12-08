@@ -36,10 +36,10 @@ export default {
       password: ""
     };
   },
-  // created() {
-  //   this.$store.isLoggedIn = false;
-  // },
   methods: {
+    openToast(type, message) {
+      this.$buefy.toast.open({ type, message });
+    },
     login() {
       const reqBody = {
         email: this.email,
@@ -49,12 +49,26 @@ export default {
       request
         .post("/auth/login", reqBody)
         .then(res => {
-          // this.$store.commit("SET_COOKIE");
-          console.log(res);
-          // this.$router.push("/");
+          if (res.status === 200) {
+            this.openToast('is-success', '👏 로그인 성공 👏');
+            this.$router.push("/");
+          } else if (res.status === 204) {
+            this.openToast('is-warning', '회원가입 후 로그인을 진행해주세요!');
+          } else {
+            console.log(res.status);
+          }
         })
         .catch(err => {
-          console.log(err);
+          console.error(err);
+          // 로그인 실패 관련 토스트 띄우기
+
+          if (err.response.status === 401) {
+            this.openToast('is-danger', '비밀번호가 일치하지 않습니다!');
+          } else if (err.response.status === 400) {
+            this.openToast('is-danger', '이메일과 비밀번호를 입력해 주세요!');
+          } else {
+            this.openToast('is-danger', '로그인 실패! 잠시 후 재시도해주세요!');
+          }
         });
     }
   }

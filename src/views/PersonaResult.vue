@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import request from "../common/utils/http";
 import { mapState } from "vuex";
 import SearchLoading from "@/components/SearchLoading";
 import SearchError from "@/components/SearchError";
@@ -61,7 +61,6 @@ import ShowFilters from "@/components/ShowFilters";
 import UserCard from "@/components/UserCard";
 import SendRequestModal from "@/components/SendRequestModal";
 import { showDisplayText } from "@/utils/textFormatter";
-import config from "../../config";
 
 export default {
   name: "PersonaResult",
@@ -90,9 +89,8 @@ export default {
   methods: {
     fetchData() {
       this.loading = true;
-      const serverURL = config.serverBaseUrl;
-      axios
-        .post(`${serverURL}/users/search`, this.selectedOptions)
+      request
+        .post("/users/search", this.selectedOptions)
         .then(({ data }) => {
           this.userCount = data.count;
           this.users = data.users;

@@ -66,9 +66,8 @@
 </template>
 
 <script>
-import axios from "axios";
+import request from "../common/utils/http";
 import { mapState } from "vuex";
-import config from "../../config";
 import SendRequestSuccess from "@/components/SendRequestSuccess";
 
 export default {
@@ -99,13 +98,13 @@ export default {
   },
   methods: {
     createRequest() {
-      const serverURL = config.serverBaseUrl;
       if (this.customInterest) {
         this.requestForm.interests.push(this.customInterest);
       }
       this.requestForm.selectedOptions.push(this.selectedOptions);
-      axios
-        .post(`${serverURL}/requests`, this.requestForm)
+
+      request
+        .post("/requests", this.requestForm)
         .then(() => {
           this.$emit("close");
           this.$buefy.modal.open({

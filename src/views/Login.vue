@@ -26,8 +26,7 @@
 </template>
 
 <script>
-import config from "../../config";
-import axios from "axios";
+import request from "../common/utils/http";
 
 export default {
   name: "Login",
@@ -42,14 +41,13 @@ export default {
   // },
   methods: {
     login() {
-      const serverURL = config.serverBaseUrl;
       const reqBody = {
         email: this.email,
         password: this.password
       };
 
-      axios
-        .post(`${serverURL}/auth/login`, reqBody)
+      request
+        .post("/auth/login", reqBody)
         .then(res => {
           // this.$store.commit("SET_COOKIE");
           console.log(res);

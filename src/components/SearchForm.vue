@@ -62,7 +62,7 @@ export default {
     },
     async search() {
       await this.$store.commit("SET_SELECTED_OPTIONS", this.selectedOptions);
-      await this.$router.push({ name: "Result" });
+      await this.$router.push({ name: "PersonaResult" });
     }
   }
 };

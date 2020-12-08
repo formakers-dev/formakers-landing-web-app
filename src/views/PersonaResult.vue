@@ -64,7 +64,7 @@ import { showDisplayText } from "@/utils/textFormatter";
 import config from "../../config";
 
 export default {
-  name: "Result",
+  name: "PersonaResult",
   components: {
     SearchLoading,
     SearchError,

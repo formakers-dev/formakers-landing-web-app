@@ -21,7 +21,7 @@ import Title from "@/components/Title";
 import SearchForm from "@/components/SearchForm";
 
 export default {
-  name: "Home",
+  name: "PersonaHome",
   components: {
     Title,
     SearchForm

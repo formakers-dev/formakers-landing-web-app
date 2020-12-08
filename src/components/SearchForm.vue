@@ -31,7 +31,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { displayText } from "@/utils/textFormatter";
+import { displayText } from "@/common/utils/textFormatter";
 
 export default {
   name: "SearchForm",

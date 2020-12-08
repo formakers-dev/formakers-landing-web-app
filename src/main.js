@@ -21,8 +21,12 @@ Vue.use(VueGtag, {
 
 Vue.config.productionTip = false;
 
-new Vue({
+const VueModel = new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount("#app");
+});
+
+VueModel.$mount("#app");
+
+export default VueModel;

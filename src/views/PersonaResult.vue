@@ -60,7 +60,7 @@ import SearchError from "@/components/SearchError";
 import ShowFilters from "@/components/ShowFilters";
 import UserCard from "@/components/UserCard";
 import SendRequestModal from "@/components/SendRequestModal";
-import { showDisplayText } from "@/utils/textFormatter";
+import { showDisplayText } from "@/common/utils/textFormatter";
 
 export default {
   name: "PersonaResult",

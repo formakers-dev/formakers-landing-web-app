@@ -18,14 +18,14 @@ export default new Vuex.Store({
     SET_SELECTED_OPTIONS(state, options) {
       state.selectedOptions = options;
     },
-
-    SET_ACCESS_TOKEN(state, token) {
+    LOGIN(state, token) {
       state.accessToken = token;
+      state.isLoggedIn = true;
     },
-    UNSET_ACCESS_TOKEN(state) {
+    LOGOUT(state) {
       state.accessToken = "";
+      state.isLoggedIn = false;
     },
-
     SET_COOKIE(state, token) {
       const expires = "1d";
       const secure = true;

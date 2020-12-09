@@ -15,13 +15,13 @@ instance.interceptors.response.use(response => {
 
   if (response.request.responseURL.indexOf("/auth/login") > -1) {
     // 1. Authorization header 에서 aceessToken을 꺼내서 프론트에 셋팅한다
-    VueApp.$store.commit("SET_ACCESS_TOKEN", response.data.token);
+    VueApp.$store.commit("LOGIN", response.data.token);
 
     // 2. Axios Request Default Header의 x-access-token 에 accessToken을 셋팅한다
     instance.defaults.headers.common["x-access-token"] = response.data.token;
   } else if (response.request.responseURL.indexOf("/auth/logout") > -1) {
     // 1. 프론트에 셋팅한 accessToken을 지운다
-    VueApp.$store.commit("UNSET_ACCESS_TOKEN");
+    VueApp.$store.commit("LOGOUT");
 
     // 2. Axios Request Default Header의 x-access-tokenn에 셋팅되어있는 accessToken을 지운다
     delete instance.defaults.headers.common["x-access-token"];

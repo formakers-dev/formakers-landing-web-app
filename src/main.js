@@ -4,6 +4,7 @@ import VueGtag from "vue-gtag";
 
 import "buefy/dist/buefy.css";
 import "@mdi/font/css/materialdesignicons.min.css";
+import "mdi/css/materialdesignicons.min.css";
 
 import App from "./App.vue";
 import router from "./router";

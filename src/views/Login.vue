@@ -15,10 +15,11 @@
         />
       </b-field>
 
-      <div class="login-button-container">
-        <b-button class="is-primary" @click.prevent="login" expanded>
+      <div class="auth-button-container">
+        <b-button class="is-primary login-button" @click.prevent="login" expanded>
           로그인
         </b-button>
+        <b-button class="is-light" @click.prevent="signUp" expanded>회원가입</b-button>
       </div>
     </div>
   </section>
@@ -69,6 +70,9 @@ export default {
             this.openToast('is-danger', '로그인 실패! 잠시 후 재시도해주세요!');
           }
         });
+    },
+    signUp() {
+      this.$router.push('/sign-up');
     }
   }
 };
@@ -91,7 +95,11 @@ export default {
   }
 }
 
-.login-button-container {
+.auth-button-container {
   margin-top: 2rem;
+
+  .login-button {
+    margin-bottom: 1rem;
+  }
 }
 </style>

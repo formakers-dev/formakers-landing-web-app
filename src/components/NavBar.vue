@@ -9,7 +9,8 @@
     <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-          <div class="button is-primary is-small" @click="moveToLogin">로그인</div>
+          <div class="button is-light is-small" @click.prevent="moveToSignUp">회원가입</div>
+          <div class="button is-primary is-small" @click.prevent="moveToLogin">로그인</div>
         </div>
       </b-navbar-item>
     </template>
@@ -22,6 +23,9 @@ export default {
   methods: {
     moveToLogin() {
       this.$router.push("/login");
+    },
+    moveToSignUp() {
+      this.$router.push("/sign-up");
     }
   }
 }

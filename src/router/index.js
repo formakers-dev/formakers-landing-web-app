@@ -20,6 +20,21 @@ const routes = [
     component: () => import("../views/SignUp")
   },
   {
+    path: "/my-page",
+    name: "MyPage",
+    component: () => import("../views/MyPage"),
+    children: [
+      {
+        path: "",
+        component: () => import("../views/RequestList")
+      },
+      {
+        path: "request-list",
+        component: () => import("../views/RequestList")
+      }
+    ]
+  },
+  {
     path: "/persona",
     name: "PersonaHome",
     component: () => import("../views/PersonaHome")

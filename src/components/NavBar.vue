@@ -13,7 +13,7 @@
           <div class="button is-primary is-small" @click.prevent="moveToLogin">로그인</div>
         </div>
         <div class="buttons" v-else>
-          <b-button class="is-primary is-small" icon-pack="mdi" icon-left="account">마이페이지</b-button>
+          <b-button class="is-primary is-small" icon-pack="mdi" icon-left="account" @click.prevent="moveToMyPage">마이페이지</b-button>
         </div>
       </b-navbar-item>
     </template>
@@ -34,6 +34,9 @@ export default {
     },
     moveToSignUp() {
       this.$router.push("/sign-up");
+    },
+    moveToMyPage() {
+      this.$router.push("/my-page");
     }
   }
 }

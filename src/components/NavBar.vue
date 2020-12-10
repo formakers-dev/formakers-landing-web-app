@@ -39,6 +39,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.navbar {
+  height: 5vh;
+}
 </style>

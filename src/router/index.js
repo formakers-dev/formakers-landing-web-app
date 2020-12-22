@@ -35,6 +35,10 @@ const routes = [
     ]
   },
   {
+    path: "/my-page/beta-test/:id",
+    component: () => import("../views/BetaTest")
+  },
+  {
     path: "/persona",
     name: "PersonaHome",
     component: () => import("../views/PersonaHome")

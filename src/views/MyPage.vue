@@ -26,11 +26,6 @@ import request from "@/common/utils/http";
 
 export default {
   name: "MyPage",
-  data() {
-    return {
-      isSidebarOpened: true
-    };
-  },
   methods: {
     onClickLogout() {
       request

@@ -7,6 +7,7 @@
         class="tile is-parent is-4"
         v-for="request in requestList"
         :key="request._id"
+        @click.prevent="showBetaTestInfo(request._id)"
       >
         <div class="tile is-child notification is-primary">
           <!--          :style="{ backgroundImage: `url(${request.coverImageUrl})`, backgroundSize: '100% 100%' }"-->
@@ -40,6 +41,9 @@ export default {
         .get("/beta-tests")
         .then(res => this.requestList = res.data)
         .catch(err => console.error(err));
+    },
+    showBetaTestInfo(id) {
+      this.$router.push(`/my-page/beta-test/${id}`);
     }
   }
 };
@@ -60,6 +64,11 @@ export default {
 .is-child {
   .title {
     font-size: 2rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: #2c3e50;
   }
 }
 

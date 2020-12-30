@@ -15,9 +15,18 @@
       </div>
 
       <div class="content-container">
-        <p><strong>[{{ mission.order }}번째] {{ mission.title }}</strong></p>
-        <p v-if="mission.packageName">- 게임패키지명: {{ mission.packageName }}</p>
-        <p>- 미션참여 URL: {{ mission.action }}</p>
+        <div class="content-text">
+          <p>
+            <strong>[{{ mission.order }}번째] {{ mission.title }}</strong>
+          </p>
+          <p v-if="mission.packageName">
+            - 게임패키지명: {{ mission.packageName }}
+          </p>
+          <p>- 미션참여 URL: {{ mission.action }}</p>
+        </div>
+        <b-button class="feedback-button" v-if="mission.feedbackAggregationUrl">
+          응답 자세히 보기
+        </b-button>
       </div>
     </div>
   </div>
@@ -58,5 +67,8 @@ export default {
 
 .content-container {
   margin-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
 </style>

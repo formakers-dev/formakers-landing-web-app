@@ -20,7 +20,7 @@
         <div class="mission-item"
              v-for="mission in missions"
              :key="mission._id">
-          <MissionItem :mission="mission"/>
+          <MissionItem :mission="mission" />
         </div>
       </div>
     </div>

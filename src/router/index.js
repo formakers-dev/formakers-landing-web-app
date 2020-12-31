@@ -39,6 +39,14 @@ const routes = [
     component: () => import("../views/BetaTest")
   },
   {
+    path: "/my-page/beta-test/:id/mission-result",
+    name: 'mission-result',
+    component: () => import("../views/MissionResult"),
+    props: route => ({
+      ...route.params
+    })
+  },
+  {
     path: "/persona",
     name: "PersonaHome",
     component: () => import("../views/PersonaHome")

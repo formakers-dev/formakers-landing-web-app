@@ -24,7 +24,7 @@
           </p>
           <p>- 미션참여 URL: {{ mission.action }}</p>
         </div>
-        <b-button class="feedback-button" v-if="mission.feedbackAggregationUrl">
+        <b-button class="feedback-button" v-if="mission.feedbackAggregationUrl" @click.prevent="moveToMissionResult()">
           응답 자세히 보기
         </b-button>
       </div>
@@ -49,6 +49,23 @@ export default {
         survey: "설문형"
       }
     };
+  },
+  methods: {
+    moveToMissionResult() {
+      const betaTestId = this.$route.params.id;
+      // this.$router.push({
+      //   path: `/my-page/beta-test/${betaTestId}/mission-result`,
+      //   params: { mission: this.mission },
+      // });
+      //
+      this.$router.push({
+        name: 'mission-result',
+        params: {
+          id: betaTestId,
+          mission: this.mission,
+        }
+      });
+    }
   }
 };
 </script>
